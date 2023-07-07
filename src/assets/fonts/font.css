@@ -1,0 +1,6 @@
+@font-face {
+  font-family: 'Naga';
+  src: local('Naga'), url('Naga.ttf') format('truetype'), url("Naga.otf") format("opentype"), url("Naga.woff2") format("woff2"), url("Naga.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
