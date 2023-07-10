@@ -8,15 +8,16 @@ import MenuPhone from './svgs/MenuPhone';
 import MenuDelivery from './svgs/MenuDelivery';
 import MenuVacancies from './svgs/MenuVacancies';
 import MenuDocs from './svgs/MenuDocs';
+import MenuArticles from './svgs/MenuArticles';
+import MenuSale from './svgs/MenuSale';
 import YooApp from './svgs/YooApp';
-import Paw from './svgs/Paw';
 import SearchForm from './forms/SearchForm';
 import CartIcon from './svgs/CartIcon';
 import HeartIcon from './svgs/HeartIcon';
 import { IoCloseOutline } from "react-icons/io5";
 import { PiPhoneLight } from "react-icons/pi";
 import Dots from './svgs/Dots';
-import Replacement from '../assets/imgs/replacement.jpg';
+import ReplacementMini from '../assets/imgs/replacement-mini.png';
 
 const Header = () => {
   const isMobileMD = useIsMobile('767px');
@@ -68,10 +69,7 @@ const Header = () => {
                     </Link>
                   </li>
                 </ul>
-                <Link to="/login" className='btn-1'>
-                  <span>Войти</span>
-                  <Paw className="white fs-09 ms-1"/>
-                </Link>
+                <Link to="/login" className='btn-2'>Войти</Link>
               </>
             }
           </nav>
@@ -80,10 +78,10 @@ const Header = () => {
 
       <Offcanvas className="offcanvas-menu" show={showMenu} onHide={()=>setShowMenu(false)} placement={'end'}>
         <Offcanvas.Body>
+          <Link to="/promo">
+            <img src={ReplacementMini} alt="" className='menu-offer'/>
+          </Link>
           <Container className='h-100 px-0' onClick={()=>setShowMenu(false)}>
-            <Link to="/promo">
-              <img src={Replacement} alt="Большие пиццы" className='menu-offer'/>
-            </Link>
             <div className='px-4'>
               <nav>
                 <ul>
@@ -97,6 +95,18 @@ const Header = () => {
                     <Link to='/'>
                       <MenuDelivery/>
                       <span>Оплата и доставка</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to='/'>
+                      <MenuArticles/>
+                      <span>Новости</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to='/'>
+                      <MenuSale/>
+                      <span>Акции</span>
                     </Link>
                   </li>
                   <li>

@@ -47,15 +47,15 @@ const StoriesSection = () => {
       >
         <SwiperSlide>
           <Story 
-            onClick={() => showStory(1)} 
-            img={"imgs/img4.jpg"} 
-            title={"Подзаголовок сторис"}
+            onClick={() => showStory(0)} 
+            img={"imgs/img2.jpg"} 
+            title={"Выгода 30%"}
             viewed={true}
           />
         </SwiperSlide>
         <SwiperSlide>
           <Story 
-            onClick={() => showStory(2)} 
+            onClick={() => showStory(1)} 
             img={"imgs/img4.jpg"} 
             title={"Подзаголовок сторис"}
             viewed={false}
@@ -63,7 +63,7 @@ const StoriesSection = () => {
         </SwiperSlide>
         <SwiperSlide>
           <Story 
-            onClick={() => showStory(1)} 
+            onClick={() => showStory(2)} 
             img={"imgs/img4.jpg"} 
             title={"Подзаголовок сторис"}
             viewed={true}
@@ -71,7 +71,7 @@ const StoriesSection = () => {
         </SwiperSlide>
         <SwiperSlide>
           <Story 
-            onClick={() => showStory(2)} 
+            onClick={() => showStory(3)} 
             img={"imgs/img4.jpg"} 
             title={"Подзаголовок сторис"}
             viewed={false}
@@ -79,7 +79,7 @@ const StoriesSection = () => {
         </SwiperSlide>
         <SwiperSlide>
           <Story 
-            onClick={() => showStory(1)} 
+            onClick={() => showStory(4)} 
             img={"imgs/img4.jpg"} 
             title={"Подзаголовок сторис"}
             viewed={true}
@@ -87,7 +87,7 @@ const StoriesSection = () => {
         </SwiperSlide>
         <SwiperSlide>
           <Story 
-            onClick={() => showStory(2)} 
+            onClick={() => showStory(5)} 
             img={"imgs/img4.jpg"} 
             title={"Подзаголовок сторис"}
             viewed={false}
@@ -95,7 +95,7 @@ const StoriesSection = () => {
         </SwiperSlide>
         <SwiperSlide>
           <Story 
-            onClick={() => showStory(1)} 
+            onClick={() => showStory(6)} 
             img={"imgs/img4.jpg"} 
             title={"Подзаголовок сторис"}
             viewed={true}
@@ -103,7 +103,7 @@ const StoriesSection = () => {
         </SwiperSlide>
         <SwiperSlide>
           <Story 
-            onClick={() => showStory(2)} 
+            onClick={() => showStory(7)} 
             img={"imgs/img4.jpg"} 
             title={"Подзаголовок сторис"}
             viewed={false}
@@ -124,54 +124,48 @@ const StoriesSection = () => {
             <SwiperSlide>
               <StoryBig 
                 img={"imgs/img2.jpg"} 
-                title={"Для хвостиков"}
+                title={"Выгода 30%"}
               />
             </SwiperSlide>
             <SwiperSlide>
               <StoryBig 
-                img={"imgs/img1.png"} 
-                title={"Скидка для МЧС"}
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <StoryBig 
-                img={"imgs/img3.jpg"} 
+                img={"imgs/img4.jpg"} 
                 title={"Подзаголовок сторис"}
               />
             </SwiperSlide>
             <SwiperSlide>
               <StoryBig 
-                img={"imgs/img2.jpg"} 
-                title={"Для хвостиков"}
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <StoryBig 
-                img={"imgs/img1.png"} 
-                title={"Скидка для МЧС"}
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <StoryBig 
-                img={"imgs/img3.jpg"} 
+                img={"imgs/img4.jpg"} 
                 title={"Подзаголовок сторис"}
               />
             </SwiperSlide>
             <SwiperSlide>
               <StoryBig 
-                img={"imgs/img2.jpg"} 
-                title={"Для хвостиков"}
+                img={"imgs/img4.jpg"} 
+                title={"Подзаголовок сторис"}
               />
             </SwiperSlide>
             <SwiperSlide>
               <StoryBig 
-                img={"imgs/img1.png"} 
-                title={"Скидка для МЧС"}
+                img={"imgs/img4.jpg"} 
+                title={"Подзаголовок сторис"}
               />
             </SwiperSlide>
             <SwiperSlide>
               <StoryBig 
-                img={"imgs/img3.jpg"} 
+                img={"imgs/img4.jpg"} 
+                title={"Подзаголовок сторис"}
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <StoryBig 
+                img={"imgs/img4.jpg"} 
+                title={"Подзаголовок сторис"}
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <StoryBig 
+                img={"imgs/img4.jpg"} 
                 title={"Подзаголовок сторис"}
               />
             </SwiperSlide>

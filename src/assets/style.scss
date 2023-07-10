@@ -24,7 +24,7 @@ $main-font: "Montserrat";
 $title-font: "Naga";
 $radius: 10px;
 $color-1: #D32600;
-$color-1-light: #EDF6FE;
+$color-2-light: #E1EFFF;
 $color-2: #025CC9;
 $color-3: #175290;
 $color-4: #8255D7;
@@ -162,6 +162,9 @@ h1 {
   font-weight: 400;
   margin-bottom: 1em;
   text-align: left;
+  @include media-breakpoint-down(md) {
+    font-size: 3.5vw;
+  }
 }
 h2 {
   font-size: 1.625em;
@@ -171,22 +174,34 @@ h2 {
   width: 100%;
   border-bottom: 1px solid $gray;
   padding: .25em 0px;
+  @include media-breakpoint-down(md) {
+    font-size: 1.5em;
+  }
 }
 h3 {
   font-size: 1.75em;
   font-weight: 400;
   text-align: left;
   margin-bottom: .4em;
+  @include media-breakpoint-down(md) {
+    font-size: 1.5em;
+  }
 }
 h4 {
   font-size: 1.25em;
   font-weight: 400;
   margin-bottom: 0px;
+  @include media-breakpoint-down(md) {
+    font-size: 1.1em;
+  }
 }
 h5 {
   font-size: 1.125em;
   font-weight: 500;
   margin-bottom: 1em;
+  @include media-breakpoint-down(md) {
+    font-size: 1em;
+  }
 }
 h6 {
   font-size: .9em;
@@ -378,7 +393,7 @@ label {
     input {
       display: none;
       &:checked + .text {
-        background-color: $color-1-light;
+        background-color: $color-2-light;
       }
     }
   }
@@ -488,7 +503,7 @@ button {
   width: fit-content;
   border-radius: 2em;
   font-weight: 500;
-  /* голубая кнопка */
+  /* красная кнопка */
   &-1 {
     @extend .btn;
     color: $white;
@@ -500,7 +515,7 @@ button {
       border: 1px solid $color-3;
     }
   }
-  /* светло-голубая кнопка */
+  /* светло-красная кнопка */
   &-11 {
     @extend .btn;
     color: $color-1;
@@ -512,7 +527,7 @@ button {
       border: 1px solid $color-5;
     }
   }
-  /* красная кнопка */
+  /* голубая кнопка */
   &-2 {
     @extend .btn;
     color: $white;
@@ -524,6 +539,19 @@ button {
       border: 1px solid $color-1;
     }
   }
+  /* светло-голубая кнопка */
+  &-22 {
+    @extend .btn;
+    color: $color-2;
+    background-color: $color-2-light;
+    border: 1px solid $color-2-light;
+    &:hover, &:focus, &:active, &.active {
+      color: $white;
+      background-color: $color-2;
+      border: 1px solid $color-2;
+    }
+  }
+  /* белая кнопка с голубым текстом */
   &-20 {
     @extend .btn;
     color: $color-2;
@@ -535,6 +563,7 @@ button {
       border: 1px solid $color-2;
     }
   }
+  /* белая кнопка с фиолетовым текстом */
   &-30 {
     @extend .btn;
     color: $color-4;
@@ -854,6 +883,9 @@ form {
     @include flex();
     transition: $transition;
     margin-top: 0px;
+    @include media-breakpoint-down(md) {
+      display: none;
+    }
     &::after {
       color: inherit;
       font-size: 1em;
@@ -1150,7 +1182,7 @@ form {
         transition: $transition;
         &:hover, &:focus {
           color: $black;
-          background-color: $color-1-light;
+          background-color: $color-2-light;
         }
         &:active, &.active {
           background-color: $color-1;
@@ -1214,7 +1246,7 @@ body {
   color: $black;
   overflow-x: hidden;
   @include media-breakpoint-down(lg) {
-    font-size: 13px;
+    font-size: 14px;
   }
 }
 
@@ -1278,6 +1310,10 @@ header {
       height: 50px;
       object-fit: contain;
       margin-top: .5em;
+      @include media-breakpoint-down(md) {
+        height: 40px;
+        margin-top: 0em;
+      }
     }
   }
   .phone {
@@ -1320,8 +1356,10 @@ header {
     padding: var(--h-height) 0em var(--f-height);
     .menu-offer {
       width: 100%;
-      border-radius: $radius;
       margin-bottom: 2em;
+      height: 45vw;
+      object-fit: scale-down;
+      background: $light-gray;
     }
     nav {
       @include lightShadow();
@@ -1346,7 +1384,7 @@ header {
             }
             svg {
               font-size: 1.6em;
-              stroke: $color-1;
+              stroke: $color-2;
               stroke-width: 1.2px;
               margin-right: .5em;
               .fill {
@@ -1387,35 +1425,35 @@ main {
 
 
 .sec-1 {
-  position: relative;
-  overflow: hidden;
-  height: 460px;
-  @include media-breakpoint-down(lg) {
-    height: 400px;
-  }
-  @include media-breakpoint-down(md) {
-    height: 350px;
-  }
-  @include media-breakpoint-down(sm) {
-    height: 225px;
-  }
   .main-slider {
     .swiper-slide {
+      position: relative;
       img {
         width: 100%;
+        @include media-breakpoint-down(md) {
+          height: 47vw;
+          object-fit: cover;
+        }
+      }
+      .text {
+        position: absolute;
+        top: 20%;
+        left: 30%;
+        width: 30%;
+        z-index: 10;
+        @include media-breakpoint-down(xl) {
+          top: 15%;
+        }
+        @include media-breakpoint-down(md) {
+          left: 25%;
+          width: 40%;
+        }
       }
     }
     .swiper-wrapper {
       position: relative;
       z-index: 1;
     }
-  }
-  .text {
-    position: absolute;
-    top: 20%;
-    left: 30%;
-    width: 30%;
-    z-index: 10;
   }
 }
 
@@ -1604,8 +1642,14 @@ main {
     object-fit: cover;
     border-radius: $radius;
     margin-bottom: 1em;
+    @include media-breakpoint-down(xl) {
+      height: 210px;
+    }
     @include media-breakpoint-down(lg) {
       height: 150px;
+    }
+    @include media-breakpoint-down(md) {
+      height: 175px;
     }
     @include media-breakpoint-down(sm) {
       height: 30vw;
@@ -1632,6 +1676,9 @@ main {
   border-radius: $radius;
   position: relative;
   padding: 3em;
+  @include media-breakpoint-down(lg) {
+    padding: 2em;
+  }
 }
 
 
@@ -1651,19 +1698,16 @@ main {
       height: 55vw;
     }
   }
-  .img {
-    width: 100%;
-    height: 270px;
-    object-fit: cover;
-    border-radius: 1em;
-  }
   .cover {
     position: relative;
     img {
       width: 100%;
-      height: 260px;
+      height: 270px;
       object-fit: cover;
       border-radius: 1em;
+      @include media-breakpoint-down(xl) {
+        height: 290px;
+      }
       @include media-breakpoint-down(lg) {
         height: 200px;
       }
@@ -1698,6 +1742,9 @@ main {
     object-fit: cover;
     border-radius: 1em;
     margin-bottom: 1em;
+    @include media-breakpoint-down(xl) {
+      height: 290px;
+    }
     @include media-breakpoint-down(lg) {
       height: 200px;
     }
@@ -1721,13 +1768,6 @@ main {
 
 .sec-6 {
   position: relative;
-  // .product-slider {
-  //   overflow: visible;
-  //   padding: 1em 0px;
-  //   .swiper-slide {
-  //     width: fit-content;
-  //   }
-  // }
   .filter-params {
     @include list();
     @include flex(row, flex-start, center, wrap);
@@ -1777,7 +1817,9 @@ main {
     opacity: 1;
   }
 }
-
+.product-slider {
+  position: unset;
+}
 .sticky-box {
   position: sticky;
   z-index: 100;
@@ -2012,7 +2054,7 @@ main {
 
 .sec-7 {
   .box {
-    border: 1px solid $color-1-light;
+    border: 1px solid $color-2-light;
     border-radius: $radius;
     padding: 1em;
     max-height: 900px;
@@ -2139,7 +2181,7 @@ main {
   }
   .box {
     padding: $radius*2;
-    border: 1px solid $color-1-light;
+    border: 1px solid $color-2-light;
     border-radius: $radius;
     @include media-breakpoint-down(md) {
       padding: 1em;
@@ -2262,7 +2304,7 @@ main {
 .product-card-mini {
   width: 100%;
   padding: 1em;
-  border: 1px solid $color-1-light;
+  border: 1px solid $color-2-light;
   border-radius: 1em;
   @include flex(row, flex-start, stretch, nowrap);
   @include media-breakpoint-down(xl) {
@@ -2297,6 +2339,69 @@ main {
       &:hover {
         color: $color-1;
       }
+    }
+  }
+}
+
+
+/* Services */
+.sec-10 {
+  background-color: $light-gray;
+  padding: 5em 0px;
+  @include media-breakpoint-down(md) {
+    padding: 2em 0px;
+  }
+  .service-card {
+    img {
+      width: 100%;
+      height: 245px;
+      background-color: $white;
+      object-fit: scale-down;
+      object-position: center;
+      border-radius: $radius;
+      margin-bottom: 1em;
+      @include media-breakpoint-down(xl) {
+        height: 220px;
+      }
+      @include media-breakpoint-down(md) {
+        height: 180px;
+      }
+      @include media-breakpoint-down(sm) {
+        height: 65vw;
+      }
+    }
+    figcaption {
+      text-align: center;
+    }
+  }
+}
+
+.sec-11 {
+  background: url(imgs/bg/bg-blue.jpg) no-repeat center;
+  background-size: cover;
+  border-radius: $radius;
+  h3 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 2.5em;
+    margin-bottom: 0.65em;
+    @include media-breakpoint-down(md) {
+      font-size: 1.6em;
+    }
+    @include media-breakpoint-down(sm) {
+      font-size: 1.15em;
+    }
+    span{
+      padding-top: .1em;
+    }
+    .icon {
+      border-radius: 50%;
+      background-color: $color-1;
+      color: $white;
+      padding: 0.125em;
+    }
+    img {
+      height: 1em;
     }
   }
 }

@@ -12,7 +12,7 @@ const ProductCardMini = () => {
         <p><Link to='/catalog/category/product'>Штемпельная краска Trodat (28ml)</Link></p>
         <div className="d-flex justify-content-between align-items-center">
           <p className='fw-5'>340 ₽</p>
-          <button type='button' className='btn-11'>В корзину</button>
+          <button type='button' className='btn-22'>В корзину</button>
         </div>
       </figcaption>
     </figure>
