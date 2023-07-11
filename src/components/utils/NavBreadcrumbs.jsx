@@ -1,30 +1,29 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import Paw from '../svgs/Paw';
-import { TfiArrowCircleLeft } from "react-icons/tfi";
+import { IoChevronBackCircleOutline, IoChevronForwardOutline } from "react-icons/io5";
 
 const NavBreadcrumbs = () => {
   return (
     <nav className="breadcrumbs">
       <Link to="/" className='return'>
-        <TfiArrowCircleLeft/>
+        <IoChevronBackCircleOutline/>
       </Link>
       <ul>
         <li>
           <Link to="/">
-            <Paw/>
+            <IoChevronForwardOutline/>
             <span>Главная</span>
           </Link>
         </li>
         <li>
           <Link to="/catalog">
-            <Paw/>
+            <IoChevronForwardOutline/>
             <span>Каталог</span>
           </Link>
         </li>
         <li>
           <Link to="/catalog/category">
-            <Paw/>
+            <IoChevronForwardOutline/>
             <span>Сухой корм</span>
           </Link>
         </li>

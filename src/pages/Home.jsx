@@ -2,20 +2,23 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import {Link} from 'react-router-dom';
+import useIsMobile from '../hooks/isMobile';
+
 import StoriesSection from '../components/StoriesSection';
-import Cover from '../assets/imgs/articles-cover.jpg';
-import More from '../assets/imgs/more.jpg';
 import CategoryCard from '../components/CategoryCard';
 import ArticleCard from '../components/ArticleCard';
-import useIsMobile from '../hooks/isMobile';
-import {Link} from 'react-router-dom';
+import ProductCardMini from '../components/ProductCardMini';
+import ServiceCard from '../components/ServiceCard';
+import QuestionIcon from '../components/svgs/QuestionIcon';
+
+import Cover from '../assets/imgs/articles-cover.jpg';
+import More from '../assets/imgs/more.jpg';
+import Stamps from '../assets/imgs/stamps-black.png';
+
 import { Navigation, Pagination, Autoplay  } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import ProductCardMini from '../components/ProductCardMini';
-import Stamps from '../assets/imgs/stamps-black.png';
-import ServiceCard from '../components/ServiceCard';
-import QuestionIcon from '../components/svgs/QuestionIcon';
 
 const Home = () => {
   const isMobileLG = useIsMobile('991px');

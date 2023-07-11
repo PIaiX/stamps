@@ -9,7 +9,7 @@ const ProductCard = () => {
     <div className="product">
       <div className="product-img">
         <Link to='/catalog/category/product'>
-          <img src="imgs/img3.png" alt="Сухой корм для собак Grandorf Lamb&Turkey Adult Med&Maxi с ягнёнком и индейкой"/>
+          <img src="imgs/img1.jpg" alt="Штемпельная краска Trodat (28ml)"/>
         </Link>
         <button 
           type='button' 
@@ -20,14 +20,14 @@ const ProductCard = () => {
         </button>
       </div>
       
-      <h6><Link to='/catalog/category/product'>Сухой корм для собак Grandorf Lamb&Turkey Adult Med&Maxi с ягнёнком и индейкой</Link></h6>
+      <h5><Link to='/catalog/category/product'>Штемпельная краска Trodat (28ml)</Link></h5>
       
       <div className='w-xs-100 d-flex justify-content-between align-items-center'>
         <div>
-          <div className='fs-11 fw-5'>650 ₽</div>
+          <div className='fw-5'>650 ₽</div>
           <div className='gray fs-09 text-decoration-line-through'> 650 </div>
         </div>
-        <button type='button' className='btn-1'>добавить</button>
+        <button type='button' className='btn-1 fs-09'>добавить</button>
       </div>
     </div>
   );

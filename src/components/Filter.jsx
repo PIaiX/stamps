@@ -3,23 +3,42 @@ import Accordion from 'react-bootstrap/Accordion';
 import SelectImitation from './utils/SelectImitation';
 import RangeSlider from 'react-range-slider-input';
 import 'react-range-slider-input/dist/style.css';
+import { IoChevronDownOutline } from "react-icons/io5";
+import { TfiArrowCircleLeft } from "react-icons/tfi";
 
-const Filter = () => {
+const Filter = (props) => {
   const [value, setValue] = useState([150, 1500]);
   console.log('value: '+value);
   return (
     <form action="" className='filter'>
+       <div className="mb-4 d-flex d-lg-none justify-content-between align-items-center">
+          <button type='button' className='d-flex align-items-center' onClick={props.onClose}>
+            <TfiArrowCircleLeft className='fs-13 me-2'/>
+            <h4>Фильтры</h4>
+          </button>
+          <button type='reset' className='main-color'>очистить</button>
+        </div>
       <fieldset>
         <legend>Цена, ₽</legend>
-        <div className="d-flex justify-content-between align-items-center fs-09 mb-3">
-          <div className="input-labeled flex-1">
-            <span>От</span>
-            <input type="number" value={value[0]} onChange={(e)=>setValue([e.target.value, value[1]])}/>
-          </div>
-          <hr className='divider'/>
-          <div className="input-labeled flex-1">
-            <span>До</span>
-            <input type="number" value={value[1]} onChange={(e)=>setValue([value[0], e.target.value])}/>
+        <div className='range'>
+          <div className="range-inputs">
+            <div className="input-labeled">
+              <span>От</span>
+              <input 
+                type="number" 
+                value={value[0]} 
+                onChange={(e)=>setValue([e.target.value, value[1]])}
+              />
+            </div>
+            <hr/>
+            <div className="input-labeled">
+              <span>До</span>
+              <input 
+                type="number" 
+                value={value[1]} 
+                onChange={(e)=>setValue([value[0], e.target.value])}
+              />
+            </div>
           </div>
         </div>
         <RangeSlider min={0} max={2500} value={value} onInput={setValue}/>
@@ -73,7 +92,10 @@ const Filter = () => {
 
       <Accordion defaultActiveKey="0">
         <Accordion.Item as="fieldset" eventKey="0">
-          <Accordion.Header as="legend">Характеристика</Accordion.Header>
+          <Accordion.Header as="legend">
+            <span>Характеристика</span>
+            <IoChevronDownOutline/>
+          </Accordion.Header>
           <Accordion.Body>
             <ul>
               <li>
@@ -197,6 +219,10 @@ const Filter = () => {
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
+
+      <div className="bottom">
+        <button type='button' className='btn-2 w-100'>применить</button>
+      </div>
     </form>
   );
 };

@@ -160,10 +160,10 @@ h1, h2, h3, h4, h6 {
 h1 {
   font-size: 1.625em;
   font-weight: 400;
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
   text-align: left;
-  @include media-breakpoint-down(md) {
-    font-size: 3.5vw;
+  @include media-breakpoint-down(sm){
+    margin-bottom: 1em;
   }
 }
 h2 {
@@ -245,14 +245,26 @@ h6 {
 .orange {color: $orange;}
 .green {color: $green;}
 .main-color {color: $color-1;}
+.color-2 {color: $color-2;}
 .main-color-60 {
   color: rgba($color: $color-1, $alpha: 0.6);
+}
+.lh-15 {
+  line-height: 1.5em;
+  * {
+    line-height: 1.5em;
+  }
+}
+ul {
+  padding-left: 0px;
+  list-style-position: inside;
+  list-style-type: "- ";
 }
 
 /* Form elements */
 input, textarea, .input {
   background-color: $white;
-  border: 1px solid $gray;
+  border: 1px solid $light-gray;
   border-radius: $radius*0.5;
   padding: .7em 1.2em;
   width: 100%;
@@ -261,7 +273,7 @@ input, textarea, .input {
   transition: $transition;
   @include placeholder($dark-gray, 400);
   &:hover, &:focus, &:active {
-    border: 1px solid $gray;
+    border: 1px solid $light-gray;
   }
 }
 input {
@@ -443,8 +455,9 @@ label {
   input {
     padding: 0px;
     height: $radius*4;
-    width: $radius*4;
+    width: $radius*8;
     text-align: center;
+    border: 1px solid $gray;
     border-radius: $radius*2;
     margin: 0px $radius*0.25;
   }
@@ -604,13 +617,6 @@ button {
     font-size: 1.75em;
     color: $dark-gray;
     @include flex();
-    @include media-breakpoint-down(xl) {
-      right: 0.5em;
-    }
-    @include media-breakpoint-down(md) {
-      bottom: 0em;
-      right: 0em;
-    }
     svg {
       stroke-width: 1px;
       stroke: $dark-gray;
@@ -618,10 +624,10 @@ button {
       transition: all $transition;
     }
     &.active {
-      color: $color-2;
+      color: $color-1;
       svg {
-        stroke: $color-2;
-        fill: $color-2;
+        stroke: $color-1;
+        fill: $color-1;
       }
     }
   }
@@ -742,7 +748,7 @@ form {
   }
 }
 .accordion {
-  --bs-accordion-color: $black;
+  --bs-accordion-color: #1C1C1C;
   --bs-accordion-bg: transparent;
   --bs-accordion-border-color: none;
   --bs-accordion-border-width: 0px;
@@ -750,14 +756,37 @@ form {
   --bs-accordion-inner-border-radius: 0px;
   --bs-accordion-btn-padding-x: 0px;
   --bs-accordion-btn-padding-y: 0px;
-  --bs-accordion-btn-color: $black;
+  --bs-accordion-btn-color: #1C1C1C;
   --bs-accordion-btn-bg: transparent;
   --bs-accordion-btn-focus-border-color: transparent;
   --bs-accordion-btn-focus-box-shadow: unset;
   --bs-accordion-body-padding-x: 0px;
   --bs-accordion-body-padding-y: 0px;
-  --bs-accordion-active-color: $color-1;
+  --bs-accordion-active-color: #D32600;
   --bs-accordion-active-bg: transparent;
+  &-button {
+    @include flex(row, space-between, center, nowrap);
+    &[aria-expanded="false"]{
+      svg {
+        transform: rotate(0deg);
+      }
+    }
+    &[aria-expanded="true"]{
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+    &::after {
+      content: unset;
+    }
+    svg {
+      transition: $transition;
+      font-size: 1.2em;
+      path {
+        stroke-width: 30px;
+      }
+    }
+  }
 }
 
 .input-file {
@@ -912,22 +941,43 @@ form {
   border: none;
   margin: .5em 1em 0em;
 }
-.range-slider {
-  height: 2px;
-  background: $gray;
-  margin: $radius 0px;
-  input[type="range"] {
-    display: none;
+.range {
+  &-inputs {
+    @include flex(row, space-between, center, nowrap);
+    font-size: .9em;
+    margin-bottom: 1em;
+    .input-labeled {
+      flex: 1;
+      input {
+        padding: .7em;
+      }
+    }
+    hr {
+      width: 2em;
+      height: 1px;
+      background-color: $gray;
+      border: none;
+      margin: 1em;
+    }
   }
-  &__range {
-    background: $color-1 !important;
-  }
-  &__thumb {
-    background: $color-1 !important;
-    width: $radius !important;
-    height: $radius !important;
+  &-slider {
+    height: 2px;
+    background: $gray;
+    margin: $radius 0px;
+    input[type="range"] {
+      display: none;
+    }
+    &__range {
+      background: $color-1 !important;
+    }
+    &__thumb {
+      background: $color-1 !important;
+      width: $radius !important;
+      height: $radius !important;
+    }
   }
 }
+
 
 .notice {
   background-color: $yellow;
@@ -1055,14 +1105,14 @@ form {
 .return {
   @include flex();
   width: fit-content;
-  color: $color-1;
+  color: $color-2;
   transition: $transition;
   margin-bottom: 1em;
   font-size: 14px;
   svg {font-size: 1.4em;}
   span {margin-left: .5em;}
   &:hover, &:focus, &:active {
-    color: $color-2;
+    color: $color-3;
   }
 }
 .breadcrumbs {
@@ -1072,11 +1122,15 @@ form {
     font-size: 1.65em;
     margin-right: 1em;
     margin-bottom: 0px;
+    svg {
+      path {
+        stroke-width: 20px;
+      }
+    }
   }
   ul {
     @include list();
     @include flex(row, flex-start, center, wrap);
-    font-size: .9em;
     li {
       color: $dark-gray;
       a {
@@ -1084,7 +1138,11 @@ form {
         font-size: .75em;
         font-weight: 500;
         svg {
-          margin-right: .85em;
+          margin-right: .5em;
+          font-size: 1.2em;
+          path {
+            stroke-width: 35px;
+          }
         }
       }
       &:first-child {
@@ -1092,11 +1150,11 @@ form {
       }
       &:not(:first-child){
         a {
-          margin-left: .85em;
+          margin-left: .5em;
         }
       }
       &:last-child {
-        color: $color-1;
+        color: $color-2;
       }
     }
   }
@@ -1232,7 +1290,9 @@ hr {
     margin-bottom: 4em;
   }
 }
-
+.rounded-radius {
+  border-radius: $radius;
+}
 
 
 
@@ -1252,14 +1312,15 @@ body {
 
 
 header {
+  background-color: $white;
   height: var(--h-height);
+  position: relative;
+  z-index: 1050;
+  width: 100%;
   @include media-breakpoint-down(md) {
-    background-color: $white;
     position: fixed;
     top: 0px;
     left: 0px;
-    width: 100%;
-    z-index: 1050;
     @include shadow();
     .select {
       &-button-value {
@@ -1447,6 +1508,11 @@ main {
         @include media-breakpoint-down(md) {
           left: 25%;
           width: 40%;
+        }
+        h1 {
+          @include media-breakpoint-down(md) {
+            font-size: 3.5vw;
+          }
         }
       }
     }
@@ -1666,7 +1732,20 @@ main {
     }
   }
 }
-
+.category-slider {
+  position: static;
+  @include media-breakpoint-down(md) {
+    display: none;
+  }
+  .category-card {
+    img {
+      height: 170px;
+      @include media-breakpoint-down(lg) {
+        height: 160px;
+      }
+    }
+  }
+}
 
 .sec-4 {
   background-image: url(imgs/bg/bg-blue-stamps.jpg);
@@ -1768,18 +1847,21 @@ main {
 
 .sec-6 {
   position: relative;
-  .filter-params {
-    @include list();
-    @include flex(row, flex-start, center, wrap);
+  .params-slider {
+    max-width: 70%;
+    margin: 0px;
     font-size: .9em;
-    li {
+    @include media-breakpoint-down(md) {
+      max-width: 100%;
+      width: 100%;
+      margin-bottom: 1em;
+    }
+    .swiper-slide {
+      width: fit-content;
       padding: .65em 1em;
       border: 1px solid $color-5;
       border-radius: 2em;
       line-height: 100%;
-      &:not(:last-child) {
-        margin-right: 1.4em;
-      }
     }
   }
 }
@@ -1800,9 +1882,13 @@ main {
         height: 155px;
       }
       @include media-breakpoint-down(sm) {
-        height: 43vw;
+        height: 40vw;
       }
     }
+  }
+  h5 {
+    font-size: .9em;
+    font-weight: 400;
   }
   .btn-fav {
     position: absolute;
@@ -1906,6 +1992,7 @@ main {
   }
 }
 .filter {
+  height: 100%;
   &-line {
     @include flex(row, space-between, center, nowrap);
     margin-bottom: 3em;
@@ -2011,8 +2098,26 @@ main {
   }
 }
 .offcanvas-filter {
+  z-index: 1048 !important;
+  width: 100% !important;
   .offcanvas-body {
-    padding: calc(var(--h-height) + 1em) 1.5em calc(var(--f-height) + 1em);
+    position: relative;
+    // height: 100%;
+    padding: 0px;
+    @include flex(column, flex-start, stretch, nowrap);
+    @include media-breakpoint-down(lg) {
+      padding: calc(var(--h-height) + 1em) 1.5em calc(var(--f-height) + 1em);
+    }
+    .bottom {
+      position: fixed;
+      bottom: 0px;
+      left: 0px;
+      width: 100%;
+      z-index: 1;
+      padding: 1em;
+      background-color: $white;
+      @include shadow();
+    }
   }
 }
 
@@ -2411,23 +2516,44 @@ main {
   @include media-breakpoint-down(md) {
     h1 {flex:1;}
   }
-  &-img {
-    width: 100%;
-    height: 290px;
-    object-fit: scale-down;
-    border-radius: $radius;
-    @include media-breakpoint-down(xxl) {
-      height: 260px;
-    }
-    @include media-breakpoint-down(xl) {
-      height: 215px;
-    }
+  &-photo {
+    --img: 315px;
+    @include flex(row, flex-start, flex-start, nowrap);
     @include media-breakpoint-down(lg) {
-      height: 500px;
+      --img: 270px;
+    }
+    @include media-breakpoint-down(md) {
+      --img: 450px;
       margin-bottom: 1em;
+      flex-direction: row-reverse;
     }
     @include media-breakpoint-down(sm) {
-      height: 85vw;
+      --img: calc(88vw - 50px - 1em);
+    }
+    .thumbSlider {
+      width: 50px;
+      margin-right: 1em;
+      height: var(--img);
+      @include media-breakpoint-down(md) {
+        margin-right: 0em;
+        margin-left: 1em;
+      }
+      .swiper-slide {
+        height: 50px;
+        img {
+          width: 100%;
+          @include roundedImg(50px, $radius*0.5, contain);
+          background-color: $white;
+          border: 1px solid $light-gray;
+        }
+      }
+    }
+    .mainSlider {
+      flex: 1;
+      img {
+        @include roundedImg(var(--img), $radius, contain);
+        width: 100%;
+      }
     }
   }
   &-edit {
@@ -2519,6 +2645,7 @@ main {
       justify-content: center;
       flex-wrap: nowrap;
       align-items: center;
+      @include shadow();
       .btn-2 {
         width: auto;
         margin-top: 0em;
@@ -2549,7 +2676,7 @@ main {
       }
       &:last-child {
         width: 45%;
-        color: $color-1;
+        color: $color-2;
       }
     }
   }
@@ -2563,7 +2690,6 @@ main {
     background-color: $white;
     padding: .75em 1em;
     border-radius: $radius;
-    @include lightShadow();
     margin-bottom: .5em;
   }
   &-item {
@@ -2687,7 +2813,7 @@ footer {
     bottom: -1px;
     left: 0px;
     width: 100%;
-    z-index: 1050;
+    z-index: 1046;
     @include shadow();
   }
   .desktop {
