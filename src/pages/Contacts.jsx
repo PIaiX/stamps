@@ -30,13 +30,13 @@ const Contacts = () => {
                 <p className='mb-3'>
                   <a href="tel:+79879877878" className='d-xl-flex'>
                     <div>
-                    <HiOutlineDevicePhoneMobile className='fs-15 main-color'/>
-                    <span className='fs-11 ms-2 main-color'>Горячая линия</span>
+                    <HiOutlineDevicePhoneMobile className='fs-15 color-2'/>
+                    <span className='fs-11 ms-2 color-2'>Горячая линия</span>
                     </div>
                     <div className='fs-11 ms-2'>+7 987 987-78-78</div>
                   </a>
                 </p>
-                <button type='button' className='btn-2'>Заказать звонок</button>
+                <button type='button' className='btn-1'>Заказать звонок</button>
                 </>
               }
               
@@ -45,7 +45,7 @@ const Contacts = () => {
                 <ul>
                   <li>
                     <address>А. Губкина, 17 </address>
-                    <p className='main-color'>Доставка и самовывоз</p>
+                    <p className='color-2'>Доставка и самовывоз</p>
                     <p>9:00-21:00 без выходных</p>
                     {
                       (isMobileMD) &&
@@ -54,7 +54,7 @@ const Contacts = () => {
                   </li>
                   <li> 
                     <address>Пр. Победы 156/26</address>
-                    <p className='main-color'>Доставка и самовывоз</p>
+                    <p className='color-2'>Доставка и самовывоз</p>
                     <p>10:00-16:00 понедельник-пятница. <br/>Суббота,воскресенье выходные</p>
                     {
                       (isMobileMD) &&
@@ -67,7 +67,7 @@ const Contacts = () => {
             {
               (isMobileMD)
               ? <Col xs={12}>
-                <a href='tel:+79879877878' className='justify-content-start btn-11 rounded-2 w-100 fs-12 mt-4'>
+                <a href='tel:+79879877878' className='justify-content-start btn-22 rounded-2 w-100 fs-12 mt-4'>
                   <Phone className="fs-15"/>
                   <span className='ms-2'>Позвонить</span>
                 </a>

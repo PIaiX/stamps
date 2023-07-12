@@ -30,7 +30,7 @@ $color-3: #175290;
 $color-4: #8255D7;
 $color-5: #7DABE3;
 $orange: #FF9D17;
-$green: #00AB55;
+$green: #54C878;
 $lightgreen: #E6F7EE;
 $yellow: #FEF8BE;
 $white: #fff;
@@ -163,6 +163,7 @@ h1 {
   margin-bottom: 1.5em;
   text-align: left;
   @include media-breakpoint-down(sm){
+    font-size: 1.4em;
     margin-bottom: 1em;
   }
 }
@@ -249,6 +250,9 @@ h6 {
 .main-color-60 {
   color: rgba($color: $color-1, $alpha: 0.6);
 }
+.color-2-light-bg {
+  background-color: $color-2-light;
+}
 .lh-15 {
   line-height: 1.5em;
   * {
@@ -294,20 +298,20 @@ input {
       border: 1px solid $color-1;
     }
     &[role="switch"]{
-      width: $radius*2.75;
-      height: $radius*1.45;
+      width: $radius*4;
+      height: $radius*2.4;
       background-color: $gray;
       border: none;
-      border-radius: $radius;
+      border-radius: $radius*2;
       background-image: none;
       position: relative;
       &::before {
         content: '';
         position: absolute;
-        left: $radius*0.1;
-        top: $radius*0.1;
-        height: $radius*1.25;
-        width: $radius*1.25;
+        left: $radius*0.2;
+        top: $radius*0.2;
+        height: $radius*2;
+        width: $radius*2;
         background-color: $white;
         border-radius: 50%;
         transition: left $transition;
@@ -315,16 +319,16 @@ input {
       &:checked {
         background-color: $green;
         &::before {
-          left: $radius*1.4;
+          left: $radius*1.8;
         }
       }
     }
   }
   &[type='radio']{
     @include no-appearance;
-    width: $radius;
-    height: $radius;
-    border: 1px solid $color-1;
+    width: 1em;
+    height: 1em;
+    border: 2px solid $color-2;
     background-color: $white;
     border-radius: 50%;
     box-shadow: none;
@@ -333,12 +337,13 @@ input {
     &::before {
       content: '';
       position: absolute;
-      top: 4px;
-      left: 4px;
-      height: 10px;
-      width: 10px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: .5em;
+      width: .5em;
       border-radius: 50%;
-      background-color: $color-1;
+      background-color: $color-2;
       transition: $transition;
       opacity: 0;
     }
@@ -381,9 +386,9 @@ label {
   @include list();
   @include flex(row, flex-start, center, nowrap);
   width: fit-content;
-  border: 1px solid $gray;
+  background-color: $light-gray;
   padding: 3px;
-  border-radius: $radius*0.5;
+  border-radius: 5px;
   @include media-breakpoint-down(md) {
     width: 100%;
   }
@@ -392,20 +397,21 @@ label {
     width: 100%;
     .text {
       width: 100%;
-      background-color: transparent;
-      border-radius: .25em;
-      padding: .5em 1em;
+      background-color: $white;
+      border-radius: 2px;
+      padding: .4em 1em;
       transition: $transition;
       text-align: center;
       &:hover {
-        background-color: $color-1 !important;
+        background-color: $color-5 !important;
         color: $white;
       }
     }
     input {
       display: none;
       &:checked + .text {
-        background-color: $color-2-light;
+        background-color: $color-2;
+        color: $white;
       }
     }
   }
@@ -414,30 +420,22 @@ label {
     flex-grow: 1;
     &:not(:first-child){
       margin-left: 3px;
+      border-left: 1px solid $gray;
       padding-left: 4px;
-      &::before {
-        content: '';
-        position: absolute;
-        top: 10%;
-        left: 0%;
-        height: 80%;
-        width: 0.5px;
-        background-color: $gray;
-      }
     }
     &:first-child {
       label {
         .text {
-          border-top-left-radius: .5em;
-          border-bottom-left-radius: .5em;
+          border-top-left-radius: 4px;
+          border-bottom-left-radius: 4px;
         }
       }
     }
     &:last-child {
       label {
         .text {
-          border-top-right-radius: .5em;
-          border-bottom-right-radius: .5em;
+          border-top-right-radius: 4px;
+          border-bottom-right-radius: 4px;
         }
       }
     }
@@ -483,19 +481,21 @@ label {
   }
 }
 .promoCode {
-  @include flex();
+  @include flex(row, flex-start, stretch, nowrap);
   input {
     flex: 1;
+    padding: 0.5em 0.75em;
     border-radius: $radius*0.5 0px 0px $radius*0.5;
   }
-  .btn-1 {
+  button:not(.clear) {
     border-radius: 0px $radius*0.5 $radius*0.5 0px;
-    padding: 0.75em;
+    padding: 0.5em 0.75em;
   }
   .clear {
     color: $dark-gray;
-    font-size: 1.5em;
+    font-size: 1.35em;
     margin-left: $radius*0.25;
+    @include flex();
   }
 }
 
@@ -576,6 +576,18 @@ button {
       border: 1px solid $color-2;
     }
   }
+  /* белая кнопка с голубым текстом и голубой обводкой */
+  &-21 {
+    @extend .btn;
+    color: $color-2;
+    background-color: $white;
+    border: 1px solid $color-2;
+    &:hover, &:focus, &:active, &.active {
+      color: $white;
+      background-color: $color-2;
+      border: 1px solid $color-2;
+    }
+  }
   /* белая кнопка с фиолетовым текстом */
   &-30 {
     @extend .btn;
@@ -595,6 +607,17 @@ button {
     &:hover, &:focus, &:active, &.active {
       color: $white;
       background-color: $green;
+    }
+  }
+  &-gray {
+    @extend .btn;
+    color: $dark-gray;
+    background-color: $light-gray;
+    border: none;
+    &:hover, &:focus, &:active, &.active {
+      color: $white;
+      background-color: $dark-gray;
+      border: none;
     }
   }
   &-black {
@@ -1046,7 +1069,7 @@ form {
 }
 
 .gifts {
-  margin: 2em 0px;
+  margin: 1.2em 0px;
   ul {
     @include list();
     @include flex(row, flex-start, center, nowrap);
@@ -1064,7 +1087,7 @@ form {
       }
       .icon {
         background-color: $gray;
-        color: $white;
+        color: $dark-gray;
         @include flex();
         margin-left: $radius*0.35;
         padding: 0.33em;
@@ -1075,10 +1098,11 @@ form {
       }
       &.full {
         .bar {
-          background-color: $color-1;
+          background-color: $color-2;
         }
         .icon {
           background-color: $red;
+          color: $white;
         }
         + li:not(.full) {
           .bar {
@@ -1093,7 +1117,7 @@ form {
               height: 100%;
               width: 80%;
               border-radius: $radius*0.25;
-              background-image: linear-gradient(90deg, $color-1 40%, lighten($color-1, 40%) 100%);
+              background-image: linear-gradient(90deg, $color-2 40%, lighten($color-2, 40%) 100%);
             }
           }
         }
@@ -1272,6 +1296,9 @@ form {
   }
   &-50p {
     width: 50px !important;
+  }
+  &-100p {
+    width: 100px !important;
   }
 }
 hr {
@@ -1905,6 +1932,65 @@ main {
 }
 .product-slider {
   position: unset;
+  @include media-breakpoint-down(sm) {
+    .swiper-slide {
+      width: 170px;
+    }
+  }
+}
+.product-card-mini {
+  width: 100%;
+  padding: 1em;
+  border: 1px solid $color-2-light;
+  border-radius: 1em;
+  @include flex(row, flex-start, stretch, nowrap);
+  @include media-breakpoint-down(xl) {
+    font-size: .8em;
+  }
+  @include media-breakpoint-down(lg) {
+    font-size: 1em;
+  }
+  @include media-breakpoint-down(md) {
+    font-size: .8em;
+    padding: .75em;
+  }
+  @include media-breakpoint-down(sm) {
+    font-size: 1em;
+    @include flex(column, flex-start, stretch, nowrap);
+    border-radius: 1.5em;
+  }
+  img {
+    --card-mini-w: 100px;
+    @include roundedImg(var(--card-mini-w), $radius, cover);
+    margin-right: 1em;
+    @include media-breakpoint-down(xl) {
+      --card-mini-w: 75px;
+    }
+    @include media-breakpoint-down(md) {
+      margin-right: .75em;
+    }
+    @include media-breakpoint-down(sm) {
+      width: 100%;
+      height: 30vw;
+      margin-bottom: 1em;
+    }
+  }
+  figcaption {
+    flex: 1;
+    @include flex(column, space-between, stretch, nowrap);
+    h5 {
+      @include media-breakpoint-down(sm) {
+        font-size: .9em;
+        @include clamp(2, 1.2em, true);
+      }
+    }
+    a {
+      transition: $transition;
+      &:hover {
+        color: $color-1;
+      }
+    }
+  }
 }
 .sticky-box {
   position: sticky;
@@ -2174,9 +2260,10 @@ main {
       }
       &::before {
         content: "•";
-        color: $color-1;
+        color: $color-2;
         float: left;
         font-size: 1.75em;
+        line-height: 1rem;
         margin-right: .5em;
       }
     }
@@ -2402,47 +2489,6 @@ main {
       }
       @include media-breakpoint-down(sm) {
         font-size: 0.75em;
-      }
-    }
-  }
-}
-.product-card-mini {
-  width: 100%;
-  padding: 1em;
-  border: 1px solid $color-2-light;
-  border-radius: 1em;
-  @include flex(row, flex-start, stretch, nowrap);
-  @include media-breakpoint-down(xl) {
-    font-size: .8em;
-  }
-  @include media-breakpoint-down(lg) {
-    font-size: 1em;
-  }
-  @include media-breakpoint-down(md) {
-    font-size: .8em;
-    padding: .75em;
-  }
-  @include media-breakpoint-down(sm) {
-    font-size: 1em;
-  }
-  img {
-    --card-mini-w: 100px;
-    @include roundedImg(var(--card-mini-w), $radius, cover);
-    margin-right: 1em;
-    @include media-breakpoint-down(xl) {
-      --card-mini-w: 75px;
-    }
-    @include media-breakpoint-down(md) {
-      margin-right: .75em;
-    }
-  }
-  figcaption {
-    flex: 1;
-    @include flex(column, space-between, stretch, nowrap);
-    a {
-      transition: $transition;
-      &:hover {
-        color: $color-1;
       }
     }
   }
@@ -2688,9 +2734,12 @@ main {
   &-filter {
     @include flex();
     background-color: $white;
-    padding: .75em 1em;
-    border-radius: $radius;
+    padding: .75em 0px;
     margin-bottom: .5em;
+    @include media-breakpoint-down(sm) {
+      border-top: 1px solid $gray;
+      border-bottom: 1px solid $gray;
+    }
   }
   &-item {
     position: relative;
@@ -2702,6 +2751,7 @@ main {
     }
     @include media-breakpoint-down(sm) {
       padding: 1em 0em;
+      border-bottom: 1px solid $gray;
     }
     .left {
       @include flex(row, flex-start, flex-start, nowrap);
@@ -2773,15 +2823,37 @@ main {
     }
   }
   &-box {
-    background-color: $light-gray;
-    padding: 1em;
+    background-color: transparent;
+    padding: .75em;
     border-radius: $radius;
+    border: 1px solid $gray;
+  }
+  .priceFixed {
+    @include flex(row, space-between, center, nowrap);
+    @include media-breakpoint-down(md) {
+      position: fixed;
+      bottom: var(--f-height);
+      left: 0px;
+      width: 100%;
+      z-index: 100;
+      background-color: $white;
+      padding: .5em calc((100% - 520px) / 2);
+      @include shadow();
+    }
+    @include media-breakpoint-down(sm) {
+      padding: .5em 1em;
+    }
+  }
+  .box-gray {
+    background-color: $light-gray;
+    padding: 1em 1em 1px;
+    border-radius: 1em;
   }
 }
 .checkoutProduct {
   font-size: .9em;
   background-color: $white;
-  padding: $radius*0.5;
+  padding: $radius;
   border-radius: $radius;
   @include flex();
   @include shadow();
@@ -2789,15 +2861,29 @@ main {
     width: 60px;
     height: 60px;
     object-fit: cover;
-    border-radius: $radius*0.5;
+    border-radius: $radius;
     margin-right: 1em;
   }
   &-count {
-    border: 1px solid $light-gray;
+    border: 1px solid $gray;
     padding: .33em .8em;
+    font-weight: 500;
     background-color: $white;
-    border-radius: $radius;
-    margin-left: $radius;
+    border-radius: 1em;
+    margin-left: 1em;
+  }
+}
+.img-accepted {
+  width: 100%;
+  height: 200px;
+  object-fit: scale-down;
+  border-radius: $radius;
+  background-color: $light-gray;
+  @include media-breakpoint-down(md) {
+    height: 175px;
+  }
+  @include media-breakpoint-down(sm) {
+    height: 35vw;
   }
 }
 

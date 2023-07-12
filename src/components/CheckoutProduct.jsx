@@ -1,14 +1,14 @@
 import React from 'react';
+import ReplacementMini from '../assets/imgs/replacement-mini.png';
 
 const CheckoutProduct = () => {
   return (
     <div className='checkoutProduct'>
-      <img src="imgs/img3.png" alt="Микс-обед «Для настоящих хищников»"/>
+      <img src="imgs/img1.jpg" alt="Штемпельная краска Trodat (28ml)"/>
       <div className='flex-1'>
-        <h6>Микс-обед «Для настоящих хищников»</h6>
+        <h5>Штемпельная краска Trodat (28ml)</h5>
         <div className='d-flex align-items-center'>
-          <p>240 г</p>
-          <p className='ms-auto'>1 540 ₽</p>
+          <p className='ms-auto fw-5'>1 540 ₽</p>
           <p className='checkoutProduct-count'>х1</p>
         </div>
       </div>

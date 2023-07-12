@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Offer from '../components/Offer';
 import ProductCardMini from '../components/ProductCardMini';
-import { Navigation } from 'swiper';
+import { Navigation, FreeMode } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
@@ -41,15 +41,17 @@ const Promo = () => {
           <h5 className='fs-12'>Обратите внимание</h5>
           <Swiper
             className='product-slider'
-            modules={[Navigation]}
+            modules={[Navigation, FreeMode]}
             spaceBetween={20}
-            slidesPerView={1}
+            slidesPerView={'auto'}
             speed={750}
             navigation
+            freeMode={true}
             breakpoints={{
               576: {
                 slidesPerView: 2,
                 spaceBetween: 10,
+                freeMode: false,
               },
               768: {
                 slidesPerView: 2,

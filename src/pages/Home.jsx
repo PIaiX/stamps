@@ -16,7 +16,7 @@ import Cover from '../assets/imgs/articles-cover.jpg';
 import More from '../assets/imgs/more.jpg';
 import Stamps from '../assets/imgs/stamps-black.png';
 
-import { Navigation, Pagination, Autoplay  } from 'swiper';
+import { Navigation, Pagination, Autoplay, FreeMode } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
@@ -109,15 +109,17 @@ const Home = () => {
         <Container className='position-relative'>
           <Swiper
             className='product-slider'
-            modules={[Navigation]}
+            modules={[Navigation, FreeMode]}
             spaceBetween={20}
-            slidesPerView={1}
+            slidesPerView={'auto'}
             speed={750}
             navigation
+            freeMode={true}
             breakpoints={{
               576: {
                 slidesPerView: 2,
                 spaceBetween: 10,
+                freeMode: false,
               },
               768: {
                 slidesPerView: 2,

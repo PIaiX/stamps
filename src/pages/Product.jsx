@@ -4,17 +4,12 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ProductCard from '../components/ProductCard';
 import SelectImitation from '../components/utils/SelectImitation';
-import Ingredient from '../components/utils/Ingredient';
 import NavBreadcrumbs from '../components/utils/NavBreadcrumbs';
 import CountInput from '../components/utils/CountInput';
 // swiper
 import { Navigation, Thumbs, FreeMode } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-// icons & images
-
-import Corner from '../components/svgs/Corner';
-import { HiPlus } from "react-icons/hi2";
 
 const Product = () => {
   const [featuresShow, setFeaturesShow] = useState(false);
