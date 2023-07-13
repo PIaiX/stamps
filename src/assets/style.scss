@@ -105,7 +105,6 @@ $transition: 300ms ease-in;
   border-radius: $rad;
   object-fit: $fit;
 }
-
 @mixin shadow {
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.06);
 }
@@ -268,7 +267,7 @@ ul {
 /* Form elements */
 input, textarea, .input {
   background-color: $white;
-  border: 1px solid $light-gray;
+  border: 1px solid $gray;
   border-radius: $radius*0.5;
   padding: .7em 1.2em;
   width: 100%;
@@ -277,7 +276,7 @@ input, textarea, .input {
   transition: $transition;
   @include placeholder($dark-gray, 400);
   &:hover, &:focus, &:active {
-    border: 1px solid $light-gray;
+    border: 1px solid $color-2;
   }
 }
 input {
@@ -371,6 +370,7 @@ input {
     background-color: $white;
     font-size: .85em;
     color: $dark-gray;
+    z-index: 10;
   }
 }
 label {
@@ -629,6 +629,17 @@ button {
       background-color: $color-3;
     }
   }
+  &-black-border {
+    @extend .btn;
+    background-color: $white;
+    color: $black;
+    border: 1px solid $black;
+    &:hover, &:focus, &:active, &.active {
+      color: $white;
+      background-color: $black;
+      border: 1px solid $black;
+    }
+  }
   &[disabled]{
     background-color: $light-gray;
     border: 1px solid $light-gray;
@@ -758,6 +769,29 @@ select {
     }
   }
 }
+.password {
+  position: relative;
+  input {
+    font-size: inherit;
+    font-weight: inherit;
+    position: relative;
+    z-index: 1;
+  }
+  button {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: 5;
+    color: $dark-gray;
+    height: 100%;
+    width: 2em;
+    font-size: 1.6em;
+    @include flex();
+    svg {
+      path {stroke-width: 1.25px;}
+    }
+  }
+}
 
 form {
   fieldset {
@@ -807,6 +841,51 @@ form {
       font-size: 1.2em;
       path {
         stroke-width: 30px;
+      }
+    }
+  }
+}
+.dropdown {
+  &-toggle {
+    svg {
+      path {
+        stroke-width: 32px;
+      }
+    }
+    &::after {
+      display: none;
+    }
+  }
+  &-menu {
+    --bs-dropdown-spacer: 0.125rem;
+    --bs-dropdown-font-size: 1em;
+    --bs-dropdown-color: #1C1C1C;
+    --bs-dropdown-bg: #F4F6F8;
+    --bs-dropdown-border-color: #F4F6F8;
+    --bs-dropdown-border-radius: 10px;
+    --bs-dropdown-border-width: 0px;
+    --bs-dropdown-inner-border-radius: 9px;
+    --bs-dropdown-link-color: #1C1C1C;
+    --bs-dropdown-link-hover-color: #025CC9;
+    --bs-dropdown-link-hover-bg: #E1EFFF;
+    --bs-dropdown-link-active-color: #fff;
+    --bs-dropdown-link-active-bg: #7DABE3;
+    --bs-dropdown-item-padding-x: 1em;
+    --bs-dropdown-item-padding-y: 0.25em;
+    --bs-dropdown-box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.06);
+    box-shadow: var(--bs-dropdown-box-shadow);
+  }
+  &-item {
+    padding: 0px;
+    a {
+      display: block;
+      padding: var(--bs-dropdown-item-padding-y) var(--bs-dropdown-item-padding-x);
+      text-align: left;
+      width: 100%;
+      justify-content: flex-start !important;
+      &:active {
+        color: var(--bs-dropdown-link-active-color) !important;
+        background-color: var(--bs-dropdown-link-active-bg);
       }
     }
   }
@@ -1788,6 +1867,7 @@ main {
 }
 
 
+/* Articles */
 .sec-5 {
   .img-1 {
     width: 100%;
@@ -1869,7 +1949,94 @@ main {
       font-size: .9em;
     }
   }
+  &-midi {
+    @include flex(row, flex-start, stretch, nowrap);
+    margin-bottom: 2em;
+    img {
+      --w: 200px;
+      @include roundedImg(var(--w), $radius, scale-down);
+      margin-right: 3em;
+      @include media-breakpoint-down(xl) {
+        margin-right: 2em;
+      }
+      @include media-breakpoint-down(lg) {
+        margin-right: 1em;
+        --w: 150px;
+      }
+      @include media-breakpoint-down(sm) {
+        --w: 25vw;
+      }
+    }
+    h5 {
+      font-weight: 700;
+    }
+    .text {
+      font-size: .9em;
+      @include clamp(5, 1.2em, true);
+    }
+    figcaption {
+      @include flex(column, space-between, stretch, nowrap);
+    }
+  }
 }
+.articles-single {
+  img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: $radius;
+    margin-bottom: 2em;
+    @include media-breakpoint-down(xl) {
+      height: 350px;
+    }
+    @include media-breakpoint-down(lg) {
+      height: 300px;
+      margin-bottom: 1.5em;
+    }
+    @include media-breakpoint-down(md) {
+      height: 270px;
+    }
+    @include media-breakpoint-down(sm) {
+      height: 55vw;
+      margin-bottom: 1em;
+    }
+  }
+  p {
+    font-weight: 500;
+    margin-bottom: 2em;
+    @include media-breakpoint-down(lg) {
+      margin-bottom: 1.5em;
+    }
+    @include media-breakpoint-down(sm) {
+      margin-bottom: 1em;
+    }
+  }
+}
+.articles-list {
+  @include list();
+  background-color: #F9FBFE;
+  border-radius: $radius;
+  li {
+    padding: $radius*2;
+    @include media-breakpoint-down(lg) {
+      padding: $radius*1.5;
+    }
+    &:not(:last-child){
+      border-bottom: 1px solid $color-2-light;
+    }
+    h5 {
+      font-weight: 500;
+      font-size: .9em;
+      @include clamp(4, 1.2em, false);
+    }
+    time {
+      font-weight: 500;
+      font-size: .9em;
+      color: $color-2;
+    }
+  }
+}
+/* Articles END */
 
 
 .sec-6 {
@@ -2305,30 +2472,6 @@ main {
   @include media-breakpoint-down(sm) {
     --offer-w: 45vw;
   }
-  .offer {
-    width: 100%;
-    position: relative;
-    transition: 200ms linear;
-    img {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      height: var(--offer-w);
-      object-fit: cover;
-      border-radius: $radius;
-    }
-    figcaption {
-      position: absolute;
-      z-index: 10;
-      bottom: 1em;
-      left: 1em;
-      @include media-breakpoint-down(sm) {
-        font-size: .9em;
-        bottom: .5em;
-        left: .5em;
-      }
-    }
-  }
   .sw-offers {
     @include media-breakpoint-up(lg) {
       padding: 1em;
@@ -2493,6 +2636,30 @@ main {
     }
   }
 }
+.offer {
+  width: 100%;
+  position: relative;
+  transition: 200ms linear;
+  img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: var(--offer-w);
+    object-fit: cover;
+    border-radius: $radius;
+  }
+  figcaption {
+    position: absolute;
+    z-index: 10;
+    bottom: 1em;
+    left: 1em;
+    @include media-breakpoint-down(sm) {
+      font-size: .9em;
+      bottom: .5em;
+      left: .5em;
+    }
+  }
+}
 
 
 /* Services */
@@ -2526,6 +2693,49 @@ main {
     }
   }
 }
+.sec-service {
+  img {
+    display: block;
+    float: right;
+    width: 33%;
+    height: 250px;
+    object-fit: cover;
+    margin-left: 2em;
+    margin-bottom: 1em;
+    border-radius: 1em;
+    @include media-breakpoint-down(xl) {
+      height: 200px;
+    }
+    @include media-breakpoint-down(lg) {
+      width: 40%;
+    }
+    @include media-breakpoint-down(md) {
+      float: unset;
+      width: 100%;
+      margin-left: 0em;
+      margin-bottom: 2em;
+      height: 300px;
+    }
+    @include media-breakpoint-down(sm) {
+      margin-bottom: 1.5em;
+      height: 55vw;
+    }
+  }
+  p {
+    font-size: 1.1em;
+    font-weight: 500;
+    margin-bottom: 2em;
+    @include media-breakpoint-down(md) {
+      font-size: 1em;
+    }
+    @include media-breakpoint-down(sm) {
+      font-size: .9em;
+      margin-bottom: 1em;
+    }
+  }
+}
+/* Services END */
+
 
 .sec-11 {
   background: url(imgs/bg/bg-blue.jpg) no-repeat center;
@@ -2728,7 +2938,31 @@ main {
   }
 }
 
+/* Draft */
+.draft-card {
+  position: relative;
+  img {
+    --w: 250px;
+    @include roundedImg(var(--w), $radius, cover);
+    width: 100%;
+    @include media-breakpoint-down(xl) {
+      --w: 215px;
+    }
+    @include media-breakpoint-down(sm) {
+      --w: 43vw;
+    }
+  }
+  figcaption {
+    position: absolute;
+    bottom: $radius;
+    left: 0px;
+    width: 100%;
+  }
+}
+/* Draft END */
 
+
+/* Shopping Cart */
 .cart {
   margin-bottom: 3em;
   &-filter {
@@ -2886,8 +3120,12 @@ main {
     height: 35vw;
   }
 }
+/* Shopping Cart END */
 
 
+/***********
+FOOTER
+***********/
 footer {
   height: var(--f-height);
   background-color: #434343;
@@ -2971,6 +3209,9 @@ footer {
     }
   }
 }
+/***********
+FOOTER
+***********/
 
 
 /***********
@@ -2978,44 +3219,27 @@ ACCOUNT
 ***********/
 .account {
   position: relative;
-  .icon {
-    --w: 95px;
-    background-color: rgba($color: $color-1, $alpha: 0.1);
-    border-radius: 50%;
-    @include roundedImg(var(--w));
-    margin-right: 1em;
-    @include flex();
-    @include media-breakpoint-down(xxl) {
-      --w: 80px;
-      margin-right: .75em;
-    }
-    @include media-breakpoint-down(xl) {
-      --w: 70px;
-    }
-    @include media-breakpoint-down(lg) {
-      --w: 60px;
-    }
-    span {
-      color: $white;
-      font-size: 3.125em;
-      font-weight: 600;
-    }
-  }
-  .gradient-block {
+  .img-block {
     display: block;
-    background: url(imgs/bg/gradient.jpg) no-repeat center;
-    background-size: cover;
-    border-radius: $radius*0.5;
+    // background: url(imgs/bg/gradient.jpg) no-repeat center;
+    // background-size: cover;
+    background-color: $light-gray;
+    border-radius: $radius;
     width: 100%;
     height: 100%;
-    min-height: 125px;
+    min-height: 90px;
+    img {
+      width: 100%;
+      height: 90px;
+      object-fit: scale-down;
+      object-position: center center;
+    }
   }
   .box {
-    @include lightShadow();
     background-color: $white;
-    border-radius: $radius*0.5;
+    border: 1px solid $color-2-light;
+    border-radius: $radius;
     &-blue {
-      @include lightShadow();
       background-color: rgba($color: $color-1, $alpha: 0.1);
       border-radius: $radius*0.5;
     }
@@ -3034,8 +3258,6 @@ ACCOUNT
   &-top {
     margin-bottom: 2em;
     .box {
-      @include shadow();
-      border-radius: $radius;
       padding: 1em;
       @include media-breakpoint-down(xxl) {
         padding: .75em;
@@ -3075,11 +3297,11 @@ ACCOUNT
             color: $black;
           }
           &:hover, &:focus {
-            color: $color-1;
+            color: $color-2;
           }
           &:active, &.active {
-            background-color: rgba($color-1, .2);
-            color: $color-1;
+            background-color: $color-2-light;
+            color: $color-2;
           }
         }
       }
@@ -3820,7 +4042,7 @@ ACCOUNT
     background-size: cover;
     // background-position: 100% 100%, 100% 50%;
     background-position: 100% 50%;
-    color: $white;
+    color: $black;
     text-align: center;
     padding-top: 4em;
     .btn-40 {
@@ -3846,7 +4068,6 @@ ACCOUNT
     padding: 2em 0px;
   }
 }
-
 /***********
 ACCOUNT END
 ***********/

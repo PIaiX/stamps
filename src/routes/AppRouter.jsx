@@ -15,6 +15,10 @@ import Registration from '../pages/Registration'
 import Category from '../pages/Category'
 import SearchResults from '../pages/SearchResults'
 import OrderAccepted from '../pages/OrderAccepted'
+import Articles from '../pages/Articles'
+import Drafts from '../pages/Drafts'
+import ArticlePage from '../pages/ArticlePage'
+import Service from '../pages/Service'
 
 const router = createHashRouter(
   createRoutesFromElements(
@@ -29,6 +33,10 @@ const router = createHashRouter(
       <Route path="promo" element={<Promo/>} />
       <Route path="promo/:id" element={<OfferPage/>} />
       <Route path="contacts" element={<Contacts/>} />
+      <Route path="drafts" element={<Drafts/>} />
+      <Route path="articles" element={<Articles/>} />
+      <Route path="articles/:id" element={<ArticlePage/>} />
+      <Route path="service" element={<Service/>} />
       <Route path="*" element={<NotFound />} />
       <Route path="account/*" element={<AccountRouter/>} />
       <Route path="login" element={<Registration/>} />

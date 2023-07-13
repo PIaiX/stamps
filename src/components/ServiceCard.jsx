@@ -6,7 +6,7 @@ const ServiceCard = () => {
   return (
     <figure className='service-card'>
       <img src={ReplacementMini} alt="Разработка логотипов" />
-      <figcaption><h4><Link to="/">Разработка макетов полиграфической продукции</Link></h4></figcaption>
+      <figcaption><h4><Link to="/service">Разработка макетов полиграфической продукции</Link></h4></figcaption>
     </figure>
   );
 };

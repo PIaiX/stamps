@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import Container from 'react-bootstrap/Container';
+import Dropdown from 'react-bootstrap/Dropdown';
 import {Link} from 'react-router-dom';
 import useIsMobile from '../hooks/isMobile';
 import Logo from '../assets/imgs/logo.png';
@@ -14,7 +15,7 @@ import YooApp from './svgs/YooApp';
 import SearchForm from './forms/SearchForm';
 import CartIcon from './svgs/CartIcon';
 import HeartIcon from './svgs/HeartIcon';
-import { IoCloseOutline } from "react-icons/io5";
+import { IoCloseOutline, IoChevronDownOutline } from "react-icons/io5";
 import { PiPhoneLight } from "react-icons/pi";
 import Dots from './svgs/Dots';
 import ReplacementMini from '../assets/imgs/replacement-mini.png';
@@ -48,7 +49,25 @@ const Header = () => {
                     <Link to='/'>О нас</Link>
                   </li>
                   <li className='ms-3 ms-lg-4'>
-                    <Link to='/promo'>Акции</Link>
+                    <Link to='/drafts'>Эскизы</Link>
+                  </li>
+                  <li className='ms-3 ms-lg-4'>
+                    <Dropdown>
+                      <Dropdown.Toggle as="a">
+                        <IoChevronDownOutline className='fs-12'/>
+                      </Dropdown.Toggle>
+                      <Dropdown.Menu>
+                        <Dropdown.Item>
+                          <Link to='/promo'>Акции</Link>
+                        </Dropdown.Item>
+                        <Dropdown.Item>
+                          <Link to='/articles'>Новости</Link>
+                        </Dropdown.Item>
+                        <Dropdown.Item>
+                          <Link to='/contacts'>Контакты</Link>
+                        </Dropdown.Item>
+                      </Dropdown.Menu>
+                    </Dropdown>
                   </li>
                 </ul>
                 <SearchForm/>
@@ -98,13 +117,13 @@ const Header = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link to='/'>
+                    <Link to='/articles'>
                       <MenuArticles/>
                       <span>Новости</span>
                     </Link>
                   </li>
                   <li>
-                    <Link to='/'>
+                    <Link to='/promo'>
                       <MenuSale/>
                       <span>Акции</span>
                     </Link>

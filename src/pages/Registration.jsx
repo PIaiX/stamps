@@ -3,7 +3,6 @@ import Container from 'react-bootstrap/Container';
 import RegistrationForm from '../components/forms/RegistrationForm';
 import LoginForm from '../components/forms/LoginForm';
 import useIsMobile from '../hooks/isMobile';
-import Paw from '../components/svgs/Paw';
 
 const Registration = () => {
   const [login, setLogin] = useState(false);
@@ -66,11 +65,11 @@ const Registration = () => {
               (login)
               ? <>
                 <LoginForm/>
-                <button type='button' onClick={()=>setLogin(false)} className='main-color fs-13 mx-auto mt-4 text-decoration-underline'>Зарегистрироваться</button>
+                <button type='button' onClick={()=>setLogin(false)} className='color-2 fs-12 mx-auto mt-4 text-decoration-underline'>Зарегистрироваться</button>
               </>
               : <>
                 <RegistrationForm/>
-                <button type='button' onClick={()=>setLogin(true)} className='main-color fs-13 mx-auto mt-4 text-decoration-underline'>Войти</button>
+                <button type='button' onClick={()=>setLogin(true)} className='color-2 fs-12 mx-auto mt-4 text-decoration-underline'>Войти</button>
               </>
             }
           </section>
@@ -85,21 +84,20 @@ const Registration = () => {
             <div ref={block1} className="login-toggler">
               <div className="text">
                 <div ref={text1} className="text-1">
-                  <h3>Уже есть аккаунт?</h3>
+                  <h3 className='text-center'>Уже есть аккаунт?</h3>
                   <p>Войди в личный кабинет</p>
                 </div>
                 <div ref={text2} className="text-2">
-                  <h3>Это твой первый заказ?</h3>
+                  <h3 className='text-center'>Это твой первый заказ?</h3>
                   <p>Пройди регистрацию</p>
                 </div>
               </div>
-              <button type='button' onClick={handleClick} className='btn-20 rounded-3 mx-auto mt-4'>
+              <button type='button' onClick={handleClick} className='btn-black-border rounded-3 mx-auto mt-4'>
                 {
                   (login)
                   ? <span>Зарегистрироваться</span>
                   : <span>Войти</span>
                 }
-                <Paw className="ms-1"/>
               </button>
             </div>
           </section>

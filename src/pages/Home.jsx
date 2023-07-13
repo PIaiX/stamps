@@ -163,9 +163,7 @@ const Home = () => {
         <Container>
           <h2>Услуги</h2>
           <Row xs={1} sm={2} lg={3} className='g-4 justify-content-center'>
-            <Col>
-              <ServiceCard/>
-            </Col>
+            <Col><ServiceCard/></Col>
             <Col><ServiceCard/></Col>
             <Col><ServiceCard/></Col>
           </Row>
@@ -187,7 +185,7 @@ const Home = () => {
                 <Col md={4} xl={3}><ArticleCard /></Col>
                 <Col md={4} xl={3}><ArticleCard /></Col>
                 <Col md={4} xl={3}>
-                  <Link to="/" className="cover">
+                  <Link to="/articles" className="cover">
                     <img src={More} alt="more" className='img'/>
                   </Link>
                 </Col>
@@ -217,9 +215,9 @@ const Home = () => {
                 <ArticleCard />
               </SwiperSlide>
               <SwiperSlide>
-                <div className="cover">
+                <Link to="/articles" className="cover">
                   <img src={More} alt="More" className='img'/>
-                </div>
+                </Link>
               </SwiperSlide>
             </Swiper>
           }

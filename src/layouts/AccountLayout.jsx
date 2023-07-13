@@ -6,6 +6,8 @@ import Col from 'react-bootstrap/Col';
 import AccountMenu from '../pages/account/AccountMenu';
 import {Link} from 'react-router-dom';
 import NavBreadcrumbs from '../components/utils/NavBreadcrumbs';
+import SettingsIcon from '../components/svgs/SettingsIcon';
+import ReplacementMini from '../assets/imgs/replacement-mini.png';
 
 const AccountLayout = ({isMobile}) => {
   return (
@@ -18,34 +20,34 @@ const AccountLayout = ({isMobile}) => {
             <h1 className='mb-2'>Личный кабинет</h1>
             <NavBreadcrumbs/>
             <Row className="account-top gx-3 gx-xl-4">
-              <Col lg={3}>
-                <div className="box w-100 h-100 d-flex align-items-center">
-                  <div className="icon">
-                    <span>A</span>
-                  </div>
+              <Col lg={4}>
+                <div className="box w-100 h-100 d-flex justify-content-between align-items-center p-4">
                   <div>
-                    <h6>Алексей</h6>
-                    <p className='mb-2'><a href="tel:+79198563658">+7 919 856-36-58</a></p>
-                    <Link to='/account/settings' className='main-color'>Изменить</Link>
+                    <div className='d-flex align-items-center'>
+                      <span className="fw-5">Элли</span>
+                      <span className='main-color fs-12 mx-3'>•</span>
+                      <a href="tel:+79198563658">+7 919 856-36-58</a>
+                    </div>
+                    <div className='mt-2 dark-gray'>
+                      <a href="mailto:GreatOZ@mail.com">GreatOZ@mail.com</a>
+                    </div>
                   </div>
+                  <Link to='/account/settings' className='dark-gray ms-4'>
+                    <SettingsIcon/>
+                  </Link>
                 </div>
               </Col>
               <Col lg={2}>
                 <div className="box w-100 h-100 d-flex flex-column justify-content-between text-center">
-                  <p className='fs-09 fw-6'>Вы можете потратить</p>
-                  <p className='main-color'>
-                    <span className='fs-18'>102</span>&nbsp;<span className='fw-6 fs-11'>бонуса</span>
+                  <p className='fs-09 fw-5'>Вы можете потратить</p>
+                  <p className='color-2 fw-5'>
+                    <span className='fs-18'>102</span>&nbsp;<span className='fs-11'>бонуса</span>
                   </p>
                 </div>
               </Col>
-              <Col lg={7}>
-                <div className='h-100 row row-cols-2 gx-3 gx-xl-4'>
-                  <div>
-                    <div className="gradient-block"></div>
-                  </div>
-                  <div>
-                    <div className="gradient-block"></div>
-                  </div>
+              <Col lg={4}>
+                <div className="img-block">
+                  <img src={ReplacementMini} alt="ReplacementMini" />
                 </div>
               </Col>
             </Row>
