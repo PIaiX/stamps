@@ -2,8 +2,8 @@ import React from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ProductCard from '../../components/ProductCard';
-import AccountTitleReturn from '../../components/AccountTitleReturn';
 import useIsMobile from '../../hooks/isMobile';
+import ReturnLink from '../../components/utils/ReturnLink';
 
 const Offers = () => {
   const isMobileLG = useIsMobile('991px');
@@ -12,7 +12,10 @@ const Offers = () => {
     <section>
       {
         (isMobileLG) && 
-        <AccountTitleReturn link={'/account'} title={'Акции и промокоды'}/>
+        <div className="d-flex align-items-center mb-4">
+          <ReturnLink className="mb-0" link={'/account'}/>
+          <h5 className='ms-4 mb-0'>Акции и промокоды</h5>
+        </div>
       }
       <h5 className='fw-6'>Персональные акции</h5>
       <div className="box py-4 px-4 px-xxl-5 mb-5">

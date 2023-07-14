@@ -246,6 +246,7 @@ h6 {
 .green {color: $green;}
 .main-color {color: $color-1;}
 .color-2 {color: $color-2;}
+.color-5 {color: $color-5;}
 .main-color-60 {
   color: rgba($color: $color-1, $alpha: 0.6);
 }
@@ -932,7 +933,7 @@ form {
     padding: 0px;
   }
   svg {
-    color: $color-1;
+    color: $color-2;
     font-size: 1.5em;
     stroke-width: 1.25px;
   }
@@ -940,7 +941,7 @@ form {
     position: absolute;
     bottom: -.25em;
     right: 0px;
-    color: $color-1;
+    color: $color-2;
     font-weight: 600;
     line-height: 1em;
     font-size: .9em;
@@ -3364,17 +3365,20 @@ ACCOUNT
       @include safariFix();
       overflow: hidden;
       border-radius: $radius;
+      border: 1px solid $color-2-light;
       ul {
         @include list();
         li {
-          border-bottom: 1px solid $light-gray;
+          &:not(:last-child){
+            border-bottom: 1px solid $color-2-light;
+          }
           a {
             @include flex();
             font-weight: 400;
             font-size: 1.2em;
             padding: .75em 1em;
             &:active, &.active {
-              background-color: rgba($color: $color-1, $alpha: 0.1);
+              background-color: $color-2-light;
             }
             div {
               flex: 1;
@@ -3558,9 +3562,8 @@ ACCOUNT
     grid-template-rows: auto;
     grid-template-areas: 
     "img data quantity price"
-    "img info quantity price"
-    "img show . ."
-    ". extra . .";
+    "img show show show"
+    ". extra extra extra";
     gap: 0.5em 1em;
     @include media-breakpoint-down(xxl) {
       grid-template-columns: var(--w) auto 50px 50px;
@@ -3598,17 +3601,6 @@ ACCOUNT
         }
       }
     }
-    .info {
-      grid-area: info;
-      color: $dark-gray;
-      @include flex(row, flex-start, center, nowrap);
-      @include list();
-      li {
-        &:not(:first-child){
-          margin-left: 1em;
-        }
-      }
-    }
     .show {
       grid-area: show;
       @include media-breakpoint-down(md) {
@@ -3619,6 +3611,7 @@ ACCOUNT
     .extra {
       grid-area: extra;
       color: $dark-gray;
+      font-size: .9em;
     }
     .quantity {
       grid-area: quantity;
@@ -3796,7 +3789,7 @@ ACCOUNT
           width: var(--icon);
           height: var(--icon);
           border-radius: 50%;
-          background-color: $color-1;
+          background-color: $color-2;
         }
         .info {
           position: relative;
@@ -3804,8 +3797,8 @@ ACCOUNT
           h6 {width: fit-content;}
           .NB {
             float: right;
-            color: $green;
-            background-color: rgba($color: $green, $alpha: 0.1);
+            color: $color-2;
+            background-color: $color-2-light;
             font-size: .75em;
             border-radius: 1.25em;
             padding: 0.3em 1em;
@@ -3941,15 +3934,15 @@ ACCOUNT
           bottom: -2px;
           right: -2px;
           z-index: 10;
-          width: $radius*0.5;
-          height: $radius*0.5;
+          width: 10px;
+          height: 10px;
           border-radius: 50%;
           border: 2px solid $white;
           background-color: $gray;
           box-sizing: content-box;
           transition: $transition;
           &.active {
-            background-color: $color-1;
+            background-color: $green;
           }
         }
       }
@@ -4032,7 +4025,7 @@ ACCOUNT
         margin-top: .5em;
         padding: 1em;
         border-radius: $radius*0.5 $radius*0.5 0px $radius*0.5;
-        background-color: rgba($color: $color-1, $alpha: 0.1);
+        background-color: $color-2-light;
       }
     } 
     &.manager {

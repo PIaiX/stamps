@@ -10,14 +10,14 @@ const LiNotification = () => {
     <li>
       <div className="icon"></div>
       <div className="info">
-        <h6>
+        <h5>
           {
             (isMobileMD)
             ? <BsExclamationLg className='NB'/>
             : <span className='NB'>Важное</span>
           }
           Оплата прошла успешно
-        </h6>
+        </h5>
         <p>Информацию о заказе вы можете посмотреть во вкладке «Заказы»</p>
       </div>
       <div className="links">
@@ -27,7 +27,7 @@ const LiNotification = () => {
             <span>Перейти</span>
             <HiChevronRight/>
           </button>
-          : <button type='button' className='btn-1'>К заказам</button>
+          : <button type='button' className='btn-2'>К заказам</button>
         }
       </div>
       <div className="date">12:18 23.05.2023</div>

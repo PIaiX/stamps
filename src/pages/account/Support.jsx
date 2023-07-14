@@ -6,22 +6,26 @@ import UserMessage from '../../components/chat/UserMessage';
 import ManagerMessage from '../../components/chat/ManagerMessage';
 import InputFile from '../../components/utils/InputFile';
 import useIsMobile from '../../hooks/isMobile';
+import ReturnLink from '../../components/utils/ReturnLink';
 
 const Support = () => {
   const isMobileLG = useIsMobile('991px');
 
   return (
     <section>
-      <AccountTitleReturn link={'/account'} title={'Чат с поддержкой'}/>
+      <div className="d-flex d-lg-none align-items-center mb-4">
+        <ReturnLink className="mb-0" link={'/account'}/>
+        <h5 className='ms-4 mb-0'>Чат с поддержкой</h5>
+      </div>
       <form className='support'>
         <div className="support-top">
           <div className="support-top-icon me-4">
             <img src="imgs/avatar.jpg" alt="avatar" />
             <div className="indicator active"></div>
           </div>
-          <h6 className='mb-0'>Чат с поддержкой</h6>
-          <span className='fs-13 mx-4'>•</span>
-          <h6 className='mb-0 dark-gray'>Обращение № 26574</h6>
+          <h5 className='mb-0'>Чат с поддержкой</h5>
+          <span className='fs-09 mx-4'>●</span>
+          <h5 className='mb-0 dark-gray'>Обращение № 26574</h5>
         </div>
         <div className="support-chat">
           <div className="chat">
@@ -31,7 +35,7 @@ const Support = () => {
         </div>
         <div className="support-form">
           <input type="text" placeholder='Новое сообщение...'/>
-          <button type='submit' className='btn-1 py-2 mx-3'>Отправить</button>
+          <button type='submit' className='btn-2 py-2 mx-3'>Отправить</button>
           <InputFile className="p-2"/>
         </div>
         <div className="support-choose">

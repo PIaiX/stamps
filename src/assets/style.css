@@ -6498,6 +6498,10 @@ h6, .h6 {
   color: #025CC9;
 }
 
+.color-5 {
+  color: #7DABE3;
+}
+
 .main-color-60 {
   color: rgba(211, 38, 0, 0.6);
 }
@@ -7262,7 +7266,7 @@ form fieldset legend {
   padding: 0px;
 }
 .input-file svg {
-  color: #D32600;
+  color: #025CC9;
   font-size: 1.5em;
   stroke-width: 1.25px;
 }
@@ -7270,7 +7274,7 @@ form fieldset legend {
   position: absolute;
   bottom: -0.25em;
   right: 0px;
-  color: #D32600;
+  color: #025CC9;
   font-weight: 600;
   line-height: 1em;
   font-size: 0.9em;
@@ -10368,13 +10372,14 @@ ACCOUNT
   transform: translateZ(0);
   overflow: hidden;
   border-radius: 10px;
+  border: 1px solid #E1EFFF;
 }
 .account-menu nav ul {
   list-style: none;
   padding-left: 0px;
 }
-.account-menu nav ul li {
-  border-bottom: 1px solid #F4F6F8;
+.account-menu nav ul li:not(:last-child) {
+  border-bottom: 1px solid #E1EFFF;
 }
 .account-menu nav ul li a {
   display: flex;
@@ -10387,7 +10392,7 @@ ACCOUNT
   padding: 0.75em 1em;
 }
 .account-menu nav ul li a:active, .account-menu nav ul li a.active {
-  background-color: rgba(211, 38, 0, 0.1);
+  background-color: #E1EFFF;
 }
 .account-menu nav ul li a div {
   flex: 1;
@@ -10628,7 +10633,7 @@ ACCOUNT
   display: grid;
   grid-template-columns: var(--w) auto 110px 50px;
   grid-template-rows: auto;
-  grid-template-areas: "img data quantity price" "img info quantity price" "img show . ." ". extra . .";
+  grid-template-areas: "img data quantity price" "img show show show" ". extra extra extra";
   gap: 0.5em 1em;
   grid-template-columns: var(--w) auto 50px 50px;
   gap: 0.5em 0.75em;
@@ -10680,20 +10685,6 @@ ACCOUNT
     display: none;
   }
 }
-.account .order-item .info {
-  grid-area: info;
-  color: #637381;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  flex-wrap: nowrap;
-  list-style: none;
-  padding-left: 0px;
-}
-.account .order-item .info li:not(:first-child) {
-  margin-left: 1em;
-}
 .account .order-item .show {
   grid-area: show;
 }
@@ -10706,6 +10697,7 @@ ACCOUNT
 .account .order-item .extra {
   grid-area: extra;
   color: #637381;
+  font-size: 0.9em;
 }
 .account .order-item .quantity {
   grid-area: quantity;
@@ -10929,7 +10921,7 @@ ACCOUNT
   width: var(--icon);
   height: var(--icon);
   border-radius: 50%;
-  background-color: #D32600;
+  background-color: #025CC9;
 }
 .account .notifications-list li .info {
   position: relative;
@@ -10941,8 +10933,8 @@ ACCOUNT
 }
 .account .notifications-list li .info .NB {
   float: right;
-  color: #54C878;
-  background-color: rgba(84, 200, 120, 0.1);
+  color: #025CC9;
+  background-color: #E1EFFF;
   font-size: 0.75em;
   border-radius: 1.25em;
   padding: 0.3em 1em;
@@ -11114,8 +11106,8 @@ ACCOUNT
   bottom: -2px;
   right: -2px;
   z-index: 10;
-  width: 5px;
-  height: 5px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   border: 2px solid #fff;
   background-color: #DFE2E5;
@@ -11123,7 +11115,7 @@ ACCOUNT
   transition: 300ms ease-in;
 }
 .account .support-top-icon .indicator.active {
-  background-color: #D32600;
+  background-color: #54C878;
 }
 .account .support-chat {
   grid-area: chat;
@@ -11214,7 +11206,7 @@ ACCOUNT
   margin-top: 0.5em;
   padding: 1em;
   border-radius: 5px 5px 0px 5px;
-  background-color: rgba(211, 38, 0, 0.1);
+  background-color: #E1EFFF;
 }
 .chat-message.manager {
   width: 85%;
