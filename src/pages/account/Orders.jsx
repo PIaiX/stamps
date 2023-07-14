@@ -1,9 +1,8 @@
 import React from 'react';
 import OrderCard from '../../components/OrderCard';
-import { HiOutlineArrowLeftCircle } from "react-icons/hi2";
-import {Link} from 'react-router-dom';
 import useIsMobile from '../../hooks/isMobile';
-import NavPagination from '../../components/NavPagination';
+import NavPaginationMini from '../../components/NavPaginationMini';
+import ReturnLink from '../../components/utils/ReturnLink';
 
 const Orders = () => {
   const isMobileLG = useIsMobile('991px');
@@ -13,10 +12,7 @@ const Orders = () => {
       {
         (isMobileLG)
         ? <div className="d-flex align-items-center mb-4">
-          <Link to="/account" className='link-return'>
-            <HiOutlineArrowLeftCircle/>
-            <span>Назад</span>
-          </Link>
+          <ReturnLink link="/account" className="mb-0 me-3"/>
           <h6 className='fs-12 mb-0'>Заказы</h6>
         </div>
         : <div className="order-card top">
@@ -36,7 +32,7 @@ const Orders = () => {
         <li><OrderCard/></li>
       </ul>
       
-      <NavPagination/>
+      <NavPaginationMini/>
     </section>
   );
 };

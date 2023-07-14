@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { HiOutlineMapPin, HiOutlineStar, HiOutlineBellAlert, HiOutlineBolt, HiOutlineLifebuoy } from "react-icons/hi2";
 import CartIcon from '../../components/svgs/CartIcon';
+import Support from '../../components/svgs/Support';
 
 const AccountMenu = (props) => {
   return (
@@ -27,7 +28,7 @@ const AccountMenu = (props) => {
         </li>
         <li>
           <NavLink to="support">
-            <HiOutlineLifebuoy/>
+            <Support/>
             <div>Тех. подержка</div>
           </NavLink>
         </li>

@@ -24,7 +24,13 @@ const NavBreadcrumbs = () => {
         <li>
           <Link to="/catalog/category">
             <IoChevronForwardOutline/>
-            <span>Сухой корм</span>
+            <span>Категория</span>
+          </Link>
+        </li>
+        <li>
+          <Link to="/catalog/category.product">
+            <IoChevronForwardOutline/>
+            <span>Товар</span>
           </Link>
         </li>
       </ul>

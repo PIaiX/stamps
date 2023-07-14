@@ -45,9 +45,6 @@ const Header = () => {
               : <>
                 <Link to='/catalog' className='btn-1'>Каталог</Link>
                 <ul className='text-menu'>
-                  <li>
-                    <Link to='/'>О нас</Link>
-                  </li>
                   <li className='ms-3 ms-lg-4'>
                     <Link to='/drafts'>Эскизы</Link>
                   </li>

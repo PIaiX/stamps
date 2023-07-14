@@ -20,7 +20,7 @@ const AccountLayout = ({isMobile}) => {
             <h1 className='mb-2'>Личный кабинет</h1>
             <NavBreadcrumbs/>
             <Row className="account-top gx-3 gx-xl-4">
-              <Col lg={4}>
+              <Col lg={5} xl={4}>
                 <div className="box w-100 h-100 d-flex justify-content-between align-items-center p-4">
                   <div>
                     <div className='d-flex align-items-center'>

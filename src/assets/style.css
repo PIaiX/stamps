@@ -6506,6 +6506,10 @@ h6, .h6 {
   background-color: #E1EFFF;
 }
 
+.bg-lightgreen {
+  background-color: #E4FEEC;
+}
+
 .lh-15 {
   line-height: 1.5em;
 }
@@ -6523,7 +6527,7 @@ ul {
 input, textarea, .input {
   background-color: #fff;
   border: 1px solid #DFE2E5;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 0.7em 1.2em;
   width: 100%;
   outline: none;
@@ -6814,7 +6818,7 @@ button {
   color: inherit;
 }
 
-.btn, .btn-black-border, .btn-black, .btn-gray, .btn-lightgreen, .btn-30, .btn-21, .btn-20, .btn-22, .btn-2, .btn-11, .btn-1 {
+.btn, .btn-black-border, .btn-black, .btn-gray, .btn-lightgreen, .btn-green, .btn-30, .btn-21, .btn-20, .btn-22, .btn-2, .btn-11, .btn-1 {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -6905,8 +6909,16 @@ button {
   background-color: #8255D7;
   border: 1px solid #8255D7;
 }
+.btn-green {
+  background-color: #54C878;
+  color: #fff;
+}
+.btn-green:hover, .btn-green:focus, .btn-green:active, .btn-green.active {
+  color: #fff;
+  background-color: #175290;
+}
 .btn-lightgreen {
-  background-color: #E6F7EE;
+  background-color: #E4FEEC;
   color: #54C878;
 }
 .btn-lightgreen:hover, .btn-lightgreen:focus, .btn-lightgreen:active, .btn-lightgreen.active {
@@ -6941,7 +6953,7 @@ button {
   background-color: #1C1C1C;
   border: 1px solid #1C1C1C;
 }
-.btn[disabled], [disabled].btn-1, [disabled].btn-11, [disabled].btn-2, [disabled].btn-22, [disabled].btn-20, [disabled].btn-21, [disabled].btn-30, [disabled].btn-lightgreen, [disabled].btn-gray, [disabled].btn-black, [disabled].btn-black-border {
+.btn[disabled], [disabled].btn-1, [disabled].btn-11, [disabled].btn-2, [disabled].btn-22, [disabled].btn-20, [disabled].btn-21, [disabled].btn-30, [disabled].btn-green, [disabled].btn-lightgreen, [disabled].btn-gray, [disabled].btn-black, [disabled].btn-black-border {
   background-color: #F4F6F8;
   border: 1px solid #F4F6F8;
   color: #637381;
@@ -6950,7 +6962,6 @@ button {
 }
 .btn-fav {
   font-size: 1.75em;
-  color: #637381;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -6959,14 +6970,19 @@ button {
 }
 .btn-fav svg {
   stroke-width: 1px;
-  stroke: #637381;
+  stroke: #D32600;
   fill: transparent;
   transition: all 300ms ease-in;
 }
-.btn-fav.active {
-  color: #D32600;
+.btn-fav svg path {
+  stroke: #D32600;
+  stroke-width: 1px;
 }
 .btn-fav.active svg {
+  stroke: #D32600;
+  fill: #D32600;
+}
+.btn-fav.active svg path {
   stroke: #D32600;
   fill: #D32600;
 }
@@ -7393,6 +7409,9 @@ form fieldset legend {
 .swiper-button-prev {
   left: -1em;
 }
+.swiper-button-disabled {
+  opacity: 0 !important;
+}
 
 .divider {
   width: 2em;
@@ -7752,6 +7771,11 @@ form fieldset legend {
   .pagination {
     justify-content: center;
   }
+}
+.pagination.mini {
+  font-size: 0.9em;
+  padding: 1em 0em;
+  margin-top: 0px;
 }
 .pagination ul {
   list-style: none;
@@ -9103,6 +9127,11 @@ main.inner {
   background-color: #fff;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.06);
 }
+@media (min-width: 992px) {
+  .offcanvas-filter .offcanvas-body .bottom {
+    display: none;
+  }
+}
 
 .ingredient {
   display: flex;
@@ -9182,10 +9211,7 @@ main.inner {
   float: left;
   font-size: 1.75em;
   line-height: 1rem;
-  margin-right: 0.5em;
-}
-.sec-7 address {
-  margin-bottom: 0.5em;
+  margin-right: 0.25em;
 }
 .sec-7 .map {
   border-radius: 10px;
@@ -9208,7 +9234,18 @@ main.inner {
 }
 @media (max-width: 991.98px) {
   .sec-7 .map {
-    height: 500px;
+    height: 400px;
+    margin-bottom: 2em;
+  }
+}
+@media (max-width: 767.98px) {
+  .sec-7 .map {
+    height: 300px;
+  }
+}
+@media (max-width: 575.98px) {
+  .sec-7 .map {
+    height: 60vw;
   }
 }
 .sec-7 .map img {
@@ -9617,6 +9654,7 @@ main.inner {
   }
 }
 .productPage-photo {
+  position: relative;
   --img: 315px;
   display: flex;
   flex-direction: row;
@@ -10212,6 +10250,11 @@ ACCOUNT
   height: 100%;
   min-height: 90px;
 }
+@media (max-width: 767.98px) {
+  .account .img-block {
+    padding: 1em;
+  }
+}
 .account .img-block img {
   width: 100%;
   height: 90px;
@@ -10220,14 +10263,19 @@ ACCOUNT
   -o-object-position: center center;
      object-position: center center;
 }
+@media (max-width: 767.98px) {
+  .account .img-block img {
+    height: 70px;
+  }
+}
 .account .box {
   background-color: #fff;
   border: 1px solid #E1EFFF;
   border-radius: 10px;
 }
 .account .box-blue {
-  background-color: rgba(211, 38, 0, 0.1);
-  border-radius: 5px;
+  background-color: #E1EFFF;
+  border-radius: 10px;
 }
 .account .link-return {
   display: flex;
@@ -10314,13 +10362,12 @@ ACCOUNT
 }
 .account-menu nav {
   background-color: #fff;
-  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.04);
   -webkit-backface-visibility: hidden;
   -webkit-transform: translate3d(0, 0, 0);
   isolation: isolate;
   transform: translateZ(0);
   overflow: hidden;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 .account-menu nav ul {
   list-style: none;
@@ -10349,6 +10396,11 @@ ACCOUNT
   stroke-width: 1px;
   font-size: 1.5em;
   margin-right: 0.5em;
+}
+@media (max-width: 767.98px) {
+  .account-menu nav ul li a svg {
+    display: none;
+  }
 }
 .account .sec-orders {
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.06);
@@ -10476,7 +10528,7 @@ ACCOUNT
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: nowrap;
 }
 @media (max-width: 991.98px) {
@@ -10533,7 +10585,7 @@ ACCOUNT
   }
 }
 .account .order-card-btn a {
-  color: #D32600;
+  color: #025CC9;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -10542,7 +10594,7 @@ ACCOUNT
 }
 .account .order-card-btn a svg {
   font-size: 1.5em;
-  background-color: rgba(211, 38, 0, 0.1);
+  background-color: #E1EFFF;
   border-radius: 50%;
   margin-left: 0.25em;
   padding: 0.15em;

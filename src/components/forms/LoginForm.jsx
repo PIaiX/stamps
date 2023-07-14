@@ -11,7 +11,7 @@ const LoginForm = () => {
 
       <div className="input-labeled mb-3">
         <span>Email</span>
-        <input type="email" placeholder='Email'/>
+        <input type="email" autocomplete="on" placeholder='Email'/>
       </div>
 
       <div className="input-labeled">

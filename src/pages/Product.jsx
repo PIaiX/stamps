@@ -6,6 +6,7 @@ import ProductCard from '../components/ProductCard';
 import SelectImitation from '../components/utils/SelectImitation';
 import NavBreadcrumbs from '../components/utils/NavBreadcrumbs';
 import CountInput from '../components/utils/CountInput';
+import BtnFav from '../components/utils/BtnFav';
 // swiper
 import { Navigation, Thumbs, FreeMode } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -64,6 +65,7 @@ const Product = () => {
                         <img src="imgs/replacement-mini.png" alt="Ручная печать для организации" className='productPage-img'/>
                       </SwiperSlide>
                     </Swiper>
+                    <BtnFav/>
                   </div>
                 </Col>
                 <Col>
@@ -172,47 +174,58 @@ const Product = () => {
 
         <section className='mb-6'>
           <h5>Вам пригодится</h5>
-          <Swiper
-            className=""
-            modules={[Navigation]}
-            spaceBetween={15}
-            slidesPerView={2}
-            navigation
-            breakpoints={{
-              576: {
-                slidesPerView: 3,
-                spaceBetween: 20,
-              },
-              768: {
-                slidesPerView: 3,
-                spaceBetween: 30,
-              },
-              992: {
-                slidesPerView: 4,
-                spaceBetween: 30,
-              },
-              1200: {
-                slidesPerView: 5,
-                spaceBetween: 30,
-              },
-            }}
-          >
-            <SwiperSlide>
-              <ProductCard/>
-            </SwiperSlide>
-            <SwiperSlide>
-              <ProductCard/>
-            </SwiperSlide>
-            <SwiperSlide>
-              <ProductCard/>
-            </SwiperSlide>
-            <SwiperSlide>
-              <ProductCard/>
-            </SwiperSlide>
-            <SwiperSlide>
-              <ProductCard/>
-            </SwiperSlide>
-          </Swiper>
+          <div className="position-relative">
+            <Swiper
+              className="position-static"
+              modules={[Navigation]}
+              spaceBetween={15}
+              slidesPerView={2}
+              navigation
+              breakpoints={{
+                576: {
+                  slidesPerView: 3,
+                  spaceBetween: 20,
+                },
+                768: {
+                  slidesPerView: 3,
+                  spaceBetween: 30,
+                },
+                992: {
+                  slidesPerView: 4,
+                  spaceBetween: 30,
+                },
+                1200: {
+                  slidesPerView: 5,
+                  spaceBetween: 30,
+                },
+              }}
+            >
+              <SwiperSlide>
+                <ProductCard/>
+              </SwiperSlide>
+              <SwiperSlide>
+                <ProductCard/>
+              </SwiperSlide>
+              <SwiperSlide>
+                <ProductCard/>
+              </SwiperSlide>
+              <SwiperSlide>
+                <ProductCard/>
+              </SwiperSlide>
+              <SwiperSlide>
+                <ProductCard/>
+              </SwiperSlide>
+              <SwiperSlide>
+                <ProductCard/>
+              </SwiperSlide>
+              <SwiperSlide>
+                <ProductCard/>
+              </SwiperSlide>
+              <SwiperSlide>
+                <ProductCard/>
+              </SwiperSlide>
+            </Swiper>
+          </div>
         </section>
       </Container>
     </main>

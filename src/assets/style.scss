@@ -31,7 +31,7 @@ $color-4: #8255D7;
 $color-5: #7DABE3;
 $orange: #FF9D17;
 $green: #54C878;
-$lightgreen: #E6F7EE;
+$lightgreen: #E4FEEC;
 $yellow: #FEF8BE;
 $white: #fff;
 $black: #1C1C1C;
@@ -252,6 +252,9 @@ h6 {
 .color-2-light-bg {
   background-color: $color-2-light;
 }
+.bg-lightgreen {
+  background-color: $lightgreen;
+}
 .lh-15 {
   line-height: 1.5em;
   * {
@@ -268,7 +271,7 @@ ul {
 input, textarea, .input {
   background-color: $white;
   border: 1px solid $gray;
-  border-radius: $radius*0.5;
+  border-radius: $radius;
   padding: .7em 1.2em;
   width: 100%;
   outline: none;
@@ -600,6 +603,15 @@ button {
       border: 1px solid $color-4;
     }
   }
+  &-green {
+    @extend .btn;
+    background-color: $green;
+    color: $white;
+    &:hover, &:focus, &:active, &.active {
+      color: $white;
+      background-color: $color-3;
+    }
+  }
   &-lightgreen {
     @extend .btn;
     background-color: $lightgreen;
@@ -649,19 +661,25 @@ button {
   }
   &-fav {
     font-size: 1.75em;
-    color: $dark-gray;
     @include flex();
     svg {
       stroke-width: 1px;
-      stroke: $dark-gray;
+      stroke: $color-1;
       fill: transparent;
       transition: all $transition;
+      path {
+        stroke: $color-1;
+        stroke-width: 1px;
+      }
     }
     &.active {
-      color: $color-1;
       svg {
         stroke: $color-1;
         fill: $color-1;
+        path {
+          stroke: $color-1;
+          fill: $color-1;
+        }
       }
     }
   }
@@ -1033,6 +1051,9 @@ form {
       @extend .swiper-button;
       left: -1em;
     }
+    &-disabled {
+      opacity: 0 !important;
+    }
   }
 }
 
@@ -1322,6 +1343,11 @@ form {
   margin-top: 3em;
   @include media-breakpoint-down(md) {
     justify-content: center;
+  }
+  &.mini {
+    font-size: .9em;
+    padding: 1em 0em;
+    margin-top: 0px;
   }
   ul {
     @include list();
@@ -2370,6 +2396,9 @@ main {
       padding: 1em;
       background-color: $white;
       @include shadow();
+      @include media-breakpoint-up(lg) {
+        display: none;
+      }
     }
   }
 }
@@ -2431,11 +2460,10 @@ main {
         float: left;
         font-size: 1.75em;
         line-height: 1rem;
-        margin-right: .5em;
+        margin-right: .25em;
       }
     }
   }
-  address {margin-bottom: .5em;}
   .map {
     border-radius: $radius;
     overflow: hidden;
@@ -2446,7 +2474,14 @@ main {
       height: 600px;
     }
     @include media-breakpoint-down(lg) {
-      height: 500px;
+      height: 400px;
+      margin-bottom: 2em;
+    }
+    @include media-breakpoint-down(md) {
+      height: 300px;
+    }
+    @include media-breakpoint-down(sm) {
+      height: 60vw;
     }
     img {
       width: 100%;
@@ -2773,6 +2808,7 @@ main {
     h1 {flex:1;}
   }
   &-photo {
+    position: relative;
     --img: 315px;
     @include flex(row, flex-start, flex-start, nowrap);
     @include media-breakpoint-down(lg) {
@@ -3221,18 +3257,22 @@ ACCOUNT
   position: relative;
   .img-block {
     display: block;
-    // background: url(imgs/bg/gradient.jpg) no-repeat center;
-    // background-size: cover;
     background-color: $light-gray;
     border-radius: $radius;
     width: 100%;
     height: 100%;
     min-height: 90px;
+    @include media-breakpoint-down(md) {
+      padding: 1em;
+    }
     img {
       width: 100%;
       height: 90px;
       object-fit: scale-down;
       object-position: center center;
+      @include media-breakpoint-down(md) {
+        height: 70px;
+      }
     }
   }
   .box {
@@ -3240,8 +3280,8 @@ ACCOUNT
     border: 1px solid $color-2-light;
     border-radius: $radius;
     &-blue {
-      background-color: rgba($color: $color-1, $alpha: 0.1);
-      border-radius: $radius*0.5;
+      background-color: $color-2-light;
+      border-radius: $radius;
     }
   }
   .link-return {
@@ -3321,10 +3361,9 @@ ACCOUNT
     }
     nav {
       background-color: $white;
-      @include lightShadow();
       @include safariFix();
       overflow: hidden;
-      border-radius: $radius*0.5;
+      border-radius: $radius;
       ul {
         @include list();
         li {
@@ -3344,6 +3383,9 @@ ACCOUNT
               stroke-width: 1px;
               font-size: 1.5em;
               margin-right: .5em;
+              @include media-breakpoint-down(md) {
+                display: none;
+              }
             }
           }
         }
@@ -3448,7 +3490,7 @@ ACCOUNT
     }
     &-delivery {
       grid-area: delivery;
-      @include flex(row, flex-start, center, nowrap);
+      @include flex(row, flex-start, flex-start, nowrap);
       @include media-breakpoint-down(lg) {
         color: $dark-gray;
         padding: .25em 1em;
@@ -3479,11 +3521,11 @@ ACCOUNT
         border-top: 1px solid $light-gray;
       }
       a {
-        color: $color-1;
+        color: $color-2;
         @include flex();
         svg {
           font-size: 1.5em;
-          background-color: rgba($color: $color-1, $alpha: 0.1);
+          background-color: $color-2-light;
           border-radius: 50%;
           margin-left: 0.25em;
           padding: 0.15em;

@@ -44,46 +44,46 @@ const Filter = (props) => {
         <RangeSlider min={0} max={2500} value={value} onInput={setValue}/>
       </fieldset>
       <fieldset>
-        <legend>Вес питомца, кг</legend>
+        <legend>Параметр</legend>
         <SelectImitation 
-          placeholder={'Вес питомца'}
+          placeholder={'Выберите параметр'}
           optionsArr={[
             {
               value: 1,
-              label: '2 кг',
+              label: 'Параметр 1',
               defaultChecked: false,
             },
             {
               value: 2,
-              label: '3 кг',
+              label: 'Параметр 2',
               defaultChecked: false,
             },
             {
               value: 3,
-              label: '4 кг',
+              label: 'Параметр 3',
               defaultChecked: false,
             },
           ]}
         />
       </fieldset>
       <fieldset>
-        <legend>Возраст</legend>
+        <legend>Параметр 2</legend>
         <SelectImitation 
-          placeholder={'Возраст питомца'}
+          placeholder={'Выберите параметр 2'}
           optionsArr={[
             {
               value: 1,
-              label: 'до 1 года',
+              label: 'Параметр 1',
               defaultChecked: false,
             },
             {
               value: 2,
-              label: 'от 1 до 7 лет',
+              label: 'Параметр 2',
               defaultChecked: false,
             },
             {
               value: 3,
-              label: 'старше 7 лет',
+              label: 'Параметр 3',
               defaultChecked: false,
             },
           ]}
